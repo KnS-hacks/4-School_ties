@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/notice.css'%}"
+    <title>Document</title>
+</head>
+<body>
+    <p><공지사항 CRUD 테스트 중></p>
+    {%for a in Notices%}
+    <div>
+        <h2>{{a.title}}</h2>
+        <h2>{{a.pub_date}}</h2>
+        <h2>{{a.author}}</h2>
+        <h2>{{a.body}}</h2>
+        <p><img src="{{ a.notice_image.url }}" alt="X"/></p>
+    </div>
+    {%endfor%}
+</body>
+</html>
