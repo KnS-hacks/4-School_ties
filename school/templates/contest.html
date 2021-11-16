@@ -10,13 +10,13 @@
 </head>
 <body>
     <p><공지사항 CRUD 테스트 중></p>
-    {%for a in Notices%}
+    {%for a in Contest_boards%}
     <div>
-        <h2>{{a.Notice_title}}</h2>
-        <h2>{{a.Notice_pub_date}}</h2>
-        <h2>{{a.Notice_author}}</h2>
-        <h2>{{a.Notice_body}}</h2>
-        <p><img src="{{ a.Notice_image.url }}" alt="X"/></p>
+        <h2>{{a.Contest_title}}</h2>
+        <h2>{{a.Contest_pub_date}}</h2>
+        <h2>{{a.Contest_author}}</h2>
+        <h2>{{a.Contest_body}}</h2>
+        <p><img src="{{ a.Contest_board_image.url }}" alt="X"/></p>
     </div>
     {%endfor%}
 </body>

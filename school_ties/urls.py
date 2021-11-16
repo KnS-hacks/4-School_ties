@@ -24,4 +24,11 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('', S.home, name='home'),
     path('notice/', S.notice, name='notice'),
+    path('free/', S.free_board, name='free'),
+    path('study/', S.study_board, name='study'),
+    path('contest/', S.contest_board, name='contest'),
+    path('graduate/', S.graduate_board, name='graduate'),
+    path('club/', S.club_board, name='club'),
+    path('market/', S.market_board, name='market'),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
