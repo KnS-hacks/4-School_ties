@@ -1,14 +1,30 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout as django_logout
 from .models import User
 from django.contrib import auth
 
 # Create your views here.
+# 로그인
 def login(request):
-    return render(request, 'home.html')
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
+        user = authenticate(email = email, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error':'아이디와 비밀번호가 맞지 않습니다.'})
+    else:
+        return render(request, 'login.html')
 
+# 로그아웃
+def logout(request):
+    django_logout(request)
+    return redirect('home')
 
+# 회원가입
 def signup(request):
     if request.method == "POST":
         if request.POST["password"] == request.POST["password2"]:
@@ -27,8 +43,8 @@ def signup(request):
 
             user.save()
             # auth.login(request, user)
-            # return redirect('home')
-            return render(request, 'home.html')    
+            return redirect('home')
+            # return render(request, 'home.html')    
         else:
             return render(request, 'signup.html')
     else:
