@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action = "{%url 'signup'%}"  enctype="multipart/form-data">
+        {%csrf_token%}
+        <input type = "text" name = "username" placeholder="이름을 입력하세요"><br>
+        <input type = "email" name = "email" placeholder="이메일을 입력하세요"><br>
+        <input type = "text" name = "uni_num" placeholder="학번을 입력하세요"><br>
+        <input type = "password" name = "password" placeholder="비밀번호를 입력하세요"><br>
+        <input type = "password" name = "password2" placeholder="비밀번호를 한 번 더 입력하세요"><br>
+        <select name = "status">
+            <option value = "" disabled>직위선택</option>
+            <option value = "학부생">학부생</option>
+            <option value = "관리자">관리자</option>
+        </select><br>
+        <p>학생증을 올려주세요.
+        <input type = "file" name = "card"></p>
+        <button>회원가입 신청</button>
+    </form>
+</body>
+</html>
