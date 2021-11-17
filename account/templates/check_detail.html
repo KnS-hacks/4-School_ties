@@ -8,6 +8,7 @@
 </head>
 <body>
     <p><img src="{{check_detail_user.card.url}}" width = "200" height ="200" alt ="x"/></p>
+    <a href="{% url 'update_status' check_detail_user.id %}"><input type="submit" value="승인완료"></a>
     <a href="{% url 'delete_user' check_detail_user.id %}"><input type="submit" value="삭제"></a>
 </body>
 </html>

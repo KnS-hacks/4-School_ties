@@ -8,5 +8,6 @@ urlpatterns = [
     path('signup/', A.signup, name = "signup"),
     path('check/', A.check, name = "check"),
     path('check_detail/<str:id>', A.check_detail, name = "check_detail"),
-    path('delete_user/<str:id>', A.delete_user, name = "delete_user")
+    path('delete_user/<str:id>', A.delete_user, name = "delete_user"),
+    path('update_status/<str:id>', A.update_status, name = "update_status"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
