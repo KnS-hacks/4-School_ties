@@ -31,6 +31,8 @@ def logout(request):
 # 회원가입
 def signup(request):
     if request.method == "POST":
+        if User.objects.filter(username=request.POST['username']).exists(): #아이디 중복 체크 
+            return render(request, 'signup.html', {'error':'사용할 수 없는 아이디 입니다.'})
         if request.POST["password"] == request.POST["password2"]:
             user = User.objects.create_user(
                 username = request.POST["username"],

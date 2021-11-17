@@ -10,7 +10,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=128)
     uni_num = models.CharField(max_length=20)
     status = models.CharField(max_length=10)
-    card = models.ImageField(upload_to = "account/", blank=True, null=True)
+    card = models.ImageField(upload_to = "account/", blank=False, null=False)
     approval = models.CharField(
         choices = approval_choice, max_length = 10, null = False, blank = False, default="승인대기"
     )
