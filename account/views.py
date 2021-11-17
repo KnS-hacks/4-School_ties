@@ -31,8 +31,6 @@ def logout(request):
 # 회원가입
 def signup(request):
     if request.method == "POST":
-        if User.objects.filter(username=request.POST['username']).exists(): #아이디 중복 체크 
-            return render(request, 'signup.html', {'error':'사용할 수 없는 아이디 입니다.'})
         if request.POST["password"] == request.POST["password2"]:
             user = User.objects.create_user(
                 username = request.POST["username"],
@@ -56,3 +54,12 @@ def signup(request):
             return render(request, 'signup.html')
     else:
         return render(request, 'signup.html')
+
+# 회원가입 승인여부 (filter 기능 추가 - 승인대기만 필터할 수 있도록)
+def check(request):
+    check_user = User.objects.all()
+    return render(request, 'check.html', {'check_user':check_user})
+
+def check_detail(request, id):
+    check_detail_user = get_object_or_404(User, pk = id)
+    return render(request, 'check_detail.html', {'check_detail_user':check_detail_user})
