@@ -8,7 +8,7 @@
 </head>
 <body>
     [회원가입 승인]
-    {%for a in check_user%}
+    {%for a in check_users%}
     <p>{{a.username}}|{{a.uni_num}}|{{a.real_name}}|{{a.approval}}</p>
     <a href = "{% url 'check_detail' a.id %}">관리</a>
     {%endfor%}

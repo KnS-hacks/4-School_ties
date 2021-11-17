@@ -57,9 +57,14 @@ def signup(request):
 
 # 회원가입 승인여부 (filter 기능 추가 - 승인대기만 필터할 수 있도록)
 def check(request):
-    check_user = User.objects.all()
-    return render(request, 'check.html', {'check_user':check_user})
+    check_users = User.objects.all()
+    return render(request, 'check.html', {'check_users':check_users})
 
 def check_detail(request, id):
     check_detail_user = get_object_or_404(User, pk = id)
     return render(request, 'check_detail.html', {'check_detail_user':check_detail_user})
+
+def delete_user(request, id):
+    delete_user = User.objects.get(id = id)
+    delete_user.delete()
+    return redirect('check')
