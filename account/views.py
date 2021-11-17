@@ -68,3 +68,9 @@ def delete_user(request, id):
     delete_user = User.objects.get(id = id)
     delete_user.delete()
     return redirect('check')
+
+def update_status(request, id):
+    update_user = User.objects.get(id = id)
+    update_user.approval = "승인완료"
+    update_user.save()
+    return redirect('check')
