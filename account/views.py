@@ -62,7 +62,7 @@ def signup(request):
 @login_required
 @staff_member_required
 def check(request):
-    check_users = User.objects.all()
+    check_users = User.objects.all().order_by('approval')
     return render(request, 'check.html', {'check_users':check_users})
 
 @login_required
