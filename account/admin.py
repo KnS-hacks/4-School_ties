@@ -12,8 +12,9 @@ class CustomUserAdmin(UserAdmin):
 
     fieldsets = (
         (None, {"fields": ("username", "password", "real_name", "email",
-                           "uni_num", "status", "card", "approval")},),
+                           "uni_num", "status", "card", "approval", 'is_staff')},),
     )
+    
 
     list_display = (
         "username",

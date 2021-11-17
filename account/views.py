@@ -4,6 +4,8 @@ from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
 from .models import User
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 # 로그인
@@ -43,6 +45,7 @@ def signup(request):
             )
             if request.POST["status"] == "관리자":
                 user.approval = "승인완료"
+                user.is_staff = True
             else:
                 user.approval = "승인대기"
 
@@ -56,19 +59,27 @@ def signup(request):
         return render(request, 'signup.html')
 
 # 회원가입 승인여부 (filter 기능 추가 - 승인대기만 필터할 수 있도록)
+@login_required
+@staff_member_required
 def check(request):
     check_users = User.objects.all()
     return render(request, 'check.html', {'check_users':check_users})
 
+@login_required
+@staff_member_required
 def check_detail(request, id):
     check_detail_user = get_object_or_404(User, pk = id)
     return render(request, 'check_detail.html', {'check_detail_user':check_detail_user})
 
+@login_required
+@staff_member_required
 def delete_user(request, id):
     delete_user = User.objects.get(id = id)
     delete_user.delete()
     return redirect('check')
 
+@login_required
+@staff_member_required
 def update_status(request, id):
     update_user = User.objects.get(id = id)
     update_user.approval = "승인완료"
