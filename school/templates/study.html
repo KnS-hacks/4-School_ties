@@ -12,6 +12,7 @@
     <p><공지사항 CRUD 테스트 중></p>
     {%for a in Study_boards%}
     <div>
+        <a href = "{%url 'new'}">글쓰기</a>
         <h2>{{a.Study_title}}</h2>
         <h2>{{a.Study_pub_date}}</h2>
         <h2>{{a.Study_author}}</h2>
