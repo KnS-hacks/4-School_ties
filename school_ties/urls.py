@@ -23,7 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('', S.home, name='home'),
+
     path('notice/', S.notice, name='notice'),
+    path('notice/post/', S.notice_post, name='notice_post'),
+
+
     path('free/', S.free_board, name='free'),
     path('study/', S.study_board, name='study'),
     path('contest/', S.contest_board, name='contest'),

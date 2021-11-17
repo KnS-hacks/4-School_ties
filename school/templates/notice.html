@@ -10,13 +10,16 @@
 </head>
 <body>
     <p><공지사항 CRUD 테스트 중></p>
+    <a href = "{%url 'notice_post'%}">글쓰기</a>
     {%for a in Notices%}
-    <div>
+    <div>      
         <h2>{{a.Notice_title}}</h2>
         <h2>{{a.Notice_pub_date}}</h2>
         <h2>{{a.Notice_author}}</h2>
         <h2>{{a.Notice_body}}</h2>
+        {%if a.Notice_image%}
         <p><img src="{{ a.Notice_image.url }}" alt="X"/></p>
+        {%endif%}
     </div>
     {%endfor%}
 </body>
