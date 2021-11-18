@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>댓글 수정하기</h1>
+
+    <form action ="{% url 'notice_comment_u' notice.id comment.id %}" method="POST">
+        {% csrf_token %}
+        <p>작성자 : <input type="text" name="author" value="{{ comment.author }}"></p>
+        <p>댓글 : <textarea name="content" cols="100" row="300">{{ comment.content }}</textarea></p>
+        <button type="submit">submit</button>
+        </form>
+</body>
+</html>
