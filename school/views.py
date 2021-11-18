@@ -27,6 +27,7 @@ def notice_post(request):
 #공지사항 detail
 def notice_detail(request, id):
     detail_notice = get_object_or_404(Notice, pk = id)
+    print(detail_notice)
     return render(request, 'notice_detail.html', {'detail_notice':detail_notice})
 
 #공지사항 update
@@ -44,44 +45,26 @@ def notice_update(request, id):
     notice_update.save()
     return redirect('notice_detail', notice_update.id)
 
-#공지사항 delete
+#공지사항 삭제
 def notice_delete(request, id):
     notice_delete = Notice.objects.get(id = id)
     notice_delete.delete()
     return redirect('notice')
 
-# 공지사항 댓글 create
-def notice_comment_c(request, id):
+#****공지사항 댓글*******
+def create_notice_comment(request, notice_id):
     if request.method == 'POST':
-        Noc = No_comment()
-        Noc.notice = get_object_or_404(Notice, pk = id)
-        Noc.Noc_author = request.POST['author']
-        Noc.Noc_content = request.POST['content']
-        Noc.Noc_time = timezone.datetime.now()
-        Noc.save()
-        return redirect('notice_detail', id)
-
-# 공지사항 댓글 delete
-def notice_comment_d(request, id, comment_id):
-    my_Noc = No_comment.objects.get(pk = comment_id)
-    my_Noc.delete()
-    return redirect('notice_detail', id)
-
-# 공지사항 댓글 update
-def notice_comment_u(request, id, comment_id):
-    if request.method == 'POST':
-        up_Noc = get_object_or_404(No_comment, pk=comment_id)
-        up_Noc.Noc_author = request.POST['author']
-        up_Noc.Noc_content = request.POST['content']
-        up_Noc.save()
-        return redirect('notice_detail', id)
-    else:
-        notice = get_object_or_404(Notice, pk=id)
-        comment = get_object_or_404(No_comment, pk=comment_id)
-        return render(request, 'notice_comment_edit.html', {'notice':notice, 'comment':comment})  
+        notice_comment = Notice_Comment()
+        notice_comment.notice = get_object_or_404(Notice, pk=notice_id)
+        notice_comment.notice_author = request.POST['author']
+        notice_comment.notice_content = request.POST['content']
+        notice_comment.notice_at = timezone.datetime.now()
+        notice_comment.save()
+        return redirect('notice_detail', notice_id)
 
 
-### 자유게시판
+
+###자유게시판
 def free_board(request):
     Free_boards = Free_board.objects.all()
     return render(request, 'free.html',{'Free_boards':Free_boards})
