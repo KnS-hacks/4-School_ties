@@ -38,6 +38,14 @@
                 <sub class="comment-date">{{ comment.notice_at }}</sub>
             </div>
         </div>
+                <!-- 댓글 삭제 -->
+                <a href = "{% url 'delete_notice_comment' detail_notice.id comment.id %}" method="POST" enctype="multipart/form-data">
+                    <button>삭제</button>
+                </a>
+                <!-- 댓글 수정 -->
+                <a href= "{%url 'update_notice_comment' detail_notice.id comment.id%}"  method="POST" enctype="multipart/form-data">
+                    <button>수정</button>
+                </a>
     {% endfor %}
     </body>
 </html>

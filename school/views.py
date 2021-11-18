@@ -62,6 +62,24 @@ def create_notice_comment(request, notice_id):
         notice_comment.save()
         return redirect('notice_detail', notice_id)
 
+# 공지사항 댓글 delete
+def delete_notice_comment(request, id, comment_id):
+    delete_notice_comment = Notice_Comment.objects.get(pk = comment_id)
+    delete_notice_comment.delete()
+    return redirect('notice_detail', id)
+
+# 공지사항 댓글 update
+def update_notice_comment(request, id, comment_id):
+    if request.method == 'POST':
+        update_notice_comment = get_object_or_404(Notice_Comment, pk=comment_id)
+        update_notice_comment.notice_author = request.POST['author']
+        update_notice_comment.notice_content = request.POST['content']
+        update_notice_comment.save()
+        return redirect('notice_detail', id)
+    else:
+        notice = get_object_or_404(Notice, pk=id)
+        comment = get_object_or_404(Notice_Comment, pk=comment_id)
+        return render(request, 'notice_comment_edit.html', {'notice':notice, 'comment':comment})  
 
 
 ###자유게시판

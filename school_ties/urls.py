@@ -31,6 +31,8 @@ urlpatterns = [
     path('notice/notice_update/<str:id>', S.notice_update, name='notice_update'),
     path('notice/notice_delete/<str:id>', S.notice_delete, name='notice_delete'),
     path('create_notice_comment/<str:notice_id>', S.create_notice_comment, name='create_notice_comment'),
+    path('notice/delete_comment/<int:id>/<int:comment_id>', S.delete_notice_comment, name = "delete_notice_comment"),
+    path('notice/update_comment/<int:id>/<int:comment_id>', S.update_notice_comment, name = "update_notice_comment"),
 
     path('free/', S.free_board, name='free'),
     path('study/', S.study_board, name='study'),
