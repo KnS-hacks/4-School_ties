@@ -41,4 +41,6 @@ urlpatterns = [
     path('club/', S.club_board, name='club'),
     path('market/', S.market_board, name='market'),
 
+    path('rank/', S.rank, name="rank"),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

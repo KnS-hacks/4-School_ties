@@ -14,3 +14,4 @@ class User(AbstractUser):
     approval = models.CharField(
         choices = approval_choice, max_length = 10, null = False, blank = False, default="승인대기"
     )
+    rank_count =  models.IntegerField(default=0, verbose_name = "board_score")
