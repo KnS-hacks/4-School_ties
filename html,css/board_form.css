@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*헤더 css*/
+html{
+    font-size: 1.5vw;
+    font-family: 'IM_Hyemin-Bold';
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin:0px;   
+}
+
+#header{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+    height: 8.3%;
+    background-color: #CDF0FF;
+    border-radius: 22px;
+    align-items: center;
+    
+}
+
+#header nav ul{
+    width:100%;
+	height: 100%;
+	justify-content: space-between;
+}
+ul#nav{
+    padding:0px;
+}
+#header nav ul li{
+    height: 100%;
+	align-items: center;
+    display:inline-block;
+    margin-left: 5%;
+    margin-top: 1.5%
+}
+
+
+#header nav ul #img{
+    margin-left : 0%;
+    width:3.7%;
+}
+#header nav ul #img.first{
+    margin-left : 16%;
+}
+
+
+#header nav ul li a{
+    text-decoration-line: none;
+    color: inherit;
+}
+
+#header nav ul li a img{
+    width: 55%;
+    
+}
+
+@media (max-width:800px) {
+
+    #header {
+        width:768px;
+    }
+}
+/*board_form css*/
+body #form{
+    border-radius: 44px;
+    margin-left: 18.6%;
+    margin-right: 18.6%;
+    width: 62.7%;
+    height: 57.2%;
+    background-color: #CDF0FF;
+    float:center;
+}
+
+#form #title{
+    width: 100%;
+    height: 7.8%;
+    margin-top: 2%;
+    margin-left: 3%;
+    display:inline-block;
+    
+}
+#form #title #input{
+    border-radius: 15px;
+    background-color: white;
+    width: 89%;
+    height: 100%;
+    border-width: 3px;
+    border-color:black;
+}
+#form #text{
+    width: 100%;
+    height: 75%;
+    margin-top: 2%;
+    margin-left: 3%;
+    display:inline-block;
+
+}
+#form #text textarea{
+    border-width: 3px;
+    border-radius: 15px;
+    border-color:black;
+    background-color: white;
+    padding-left: 1%;
+    padding-top: 1%;
+    width: 88%;
+    height: 100%;
+    display:inline-block;
+    resize: none;
+}
+#form #text #atag{
+    display:inline-block;    
+    vertical-align: top;
+    position:relative;
+    
+}
+#form #submit{
+    width: 100%;
+    font-family: 'IM_Hyemin-Bold';
+    
+}
+#form #submit input{
+    background-color: #C4C4C4;
+    border-radius: 5px;
+    width: 10%;
+    height: 100%;
+    float:right;
+    margin-right: 3%;
+}
+@media screen and (max-width:1000px) {
+    #form {
+        width:628.88px;
+        margin-left: 186px;
+        margin-right: 186px;;
+    }
+}
+
+
+/*푸터 css*/
+body footer {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+	background: #E6E6E6;
+    align-items: center;
+    margin-left: auto;
+    justify-content: right;
+}
+footer img{
+    padding: 0 20px 0 20px;
+    width: 70px;
+    height: 70px;
+    float: right;
+}

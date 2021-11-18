@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*헤더 css*/
+html{
+    font-size: 1.5vw;
+    font-family: 'IM_Hyemin-Bold';
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin:0px;   
+}
+
+#header{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+    height: 8.3%;
+    background-color: #CDF0FF;
+    border-radius: 22px;
+    align-items: center;
+    
+}
+
+#header nav ul{
+    width:100%;
+	height: 100%;
+	justify-content: space-between;
+}
+ul#nav{
+    padding:0px;
+}
+#header nav ul li{
+    height: 100%;
+	align-items: center;
+    display:inline-block;
+    margin-left: 5%;
+    margin-top: 1.5%
+}
+
+
+#header nav ul #img{
+    margin-left : 0%;
+    width:3.7%;
+}
+#header nav ul #img.first{
+    margin-left : 16%;
+}
+
+
+#header nav ul li a{
+    text-decoration-line: none;
+    color: inherit;
+}
+
+#header nav ul li a img{
+    width: 55%;
+    
+}
+
+@media (max-width:800px) {
+
+    #header {
+        width:768px;
+    }
+}
+/*calender css*/
+
+
+
+/*푸터 css*/
+body footer {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+	background: #E6E6E6;
+    align-items: center;
+    margin-left: auto;
+    justify-content: right;
+}
+footer img{
+    padding: 0 20px 0 20px;
+    width: 70px;
+    height: 70px;
+    float: right;
+}

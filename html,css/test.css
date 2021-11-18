@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+    font-family: 'IM_Hyemin-Bold';
+}
+
+#table{
+    width:560px;
+    height: 402px;
+    border-radius: 44px;
+    background-color: #CDF0FF;
+}
+#table #title{
+    padding-top: 35px;
+    padding-left: 77px;
+}
+#table #content{
+    background-color: white;
+    margin-top: 12px;
+    margin-left: 77px;
+    margin-right: 77px;
+}
+
+#table #img{
+    width: 403px;
+    height: 213px;
+    background-color: white;
+    margin-top: 21px;
+    margin-left: 77px;
+    margin-right: 77px;
+}
+
+#table img{
+    width: 403px;
+    height: 213px;
+}

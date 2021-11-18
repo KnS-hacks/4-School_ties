@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+    font-family: 'IM_Hyemin-Bold';
+}
+#top{
+    width: 1200px;
+    height: 65px;
+    background-color: #CDF0FF;
+
+}
+
+#top ul{
+    justify-content: space-between;
+}
+
+
+#top ul li{
+    align-items: center;
+    display:inline-block;
+}
+#top ul #rank{
+    margin-left: 0px;
+}
+#top ul #info{
+    margin-left: 148px;
+}
+#top ul #point{
+    margin-left: 226px;
+    
+}
+#top ul #level{
+    margin-left: 239px;
+}
+#top ul #grade{
+    margin-left: 239px;
+}
+
+.rank{
+    width: 1200px;
+    height: 110px;
+    background-color: #CDF0FF;
+
+}
+
+.rank ul{
+    justify-content: space-between;
+}
+
+
+.rank ul li{
+    align-items: center;
+    display:inline-block;
+}
+.rank ul #rank{
+    margin-left: 0px;
+}
+.rank ul #info{
+    margin-left: 148px;
+}
+.rank ul #info img{
+    
+    border-radius: 45px;
+    background-color: white;
+}
+.rank ul #point{
+    margin-left: 226px;
+    
+}
+.rank ul #level{
+    margin-left: 239px;
+}
+.rank ul #grade{
+    margin-left: 239px;
+}

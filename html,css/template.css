@@ -1,0 +1,43 @@
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+html{
+    height: 100vh;
+}
+.containner{
+    display: grid;
+    grid-template-areas:
+        'upmargin upmargin upmargin'
+        'marginL   main     marginR'
+        'undermargin undermargin undermargin';
+    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-rows:  40px 1fr 40px;
+    height: 100vh;
+}
+
+.containner div {
+    border: 1px solid black;
+    display: grid;
+}
+
+.upmargin {
+    grid-area: upmargin;
+}
+
+.marginL {
+    grid-area: marginL;
+}
+
+.main {
+    grid-area: main;
+}
+
+.marginR {
+    grid-area: marginR;
+}
+
+.undermargin {
+    grid-area: undermargin;
+}
