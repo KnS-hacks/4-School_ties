@@ -18,11 +18,7 @@ html{
     --font40:40px;
 
 }
-.pagination{
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-}
+
  .containner {
       display: grid;
       grid-template-areas:
@@ -49,7 +45,6 @@ html{
 
 .main {
     grid-area: main;
-    margin-top: 2vh;
 }
 
 .marginR {
@@ -81,51 +76,24 @@ html{
 
 }
 .mainboard{
-
-    background-color: var(--maincolor);
-}
-.introduce{
-
-}
-.writetext{
-    display: flex;
-    background-color: var(--maincolor);
     border-radius: 30px;
-    height: 15vh;
-    padding : 1rem 0.8rem 1rem 0.8rem;
-    flex-direction: row;
-}
-.writetext div{
-    border:  3px solid black;
-}
-.writeList{
-    overflow:auto;
-    height: auto;
-    border-bottom: black 1px solid ;
-    padding: 10px;
+    background-color: var(--maincolor);
 }
 
-.writeList > .title{
+
+
+.boardcontainner > .title{
         margin: 2vh 0 10px 1vh;
         font-size: var(--fonit20);
 
 }
-.writearea{
- border-color: var(--maincolor);
-font-family: 'IM_Hyemin-Bold';
-    font-size: var(--fonit20);
-}
-.writeList > .mainstory{
+.boardcontainner > .mainstory{
     border: 1px solid black ;
     position: relative;
     height: 6vh;
     border-radius: 10px;
     background-color: white;
     margin: 0 1vw 1vh 1vw;
-}
-.number{
-    background-color: var(--maincolor);
-     height: 120px;
 }
 
 .nextnav{
@@ -138,59 +106,49 @@ font-family: 'IM_Hyemin-Bold';
 .content{
     font-family: 'IM_Hyemin-Bold';
 
-      display:flex;
+    display:flex;
     align-items: center;
     justify-content: center;
     margin: 0 20px 0 20px;
 }
-.imagesize{
-    width: 40px;
-    height: 40px;
-    border: black 1px solid;
-}
 
-.mainboard{
-    height: 100%;
-    border-radius: 20px;
-    background-color: #025ce2;
-}
 .content a{
     margin: 0 3vw 0 3vw;
     border-left:  solid white 2px;
     border-right:  solid white 2px;
     padding: 10px;
 }
-.h{
-    height: 50px;
+
+
+
+.bulletin_board_table{
+    width: 100%;
+    height: 150vh;
+    margin-top: 15vh;
+    background-color: var(--maincolor);
 }
-.name{
-    font-size: 2.0vw;
-    vertical-align: center;
-    margin-top: 40px;
+.bulletin_board_table th{
+        height: 1vh;
+        border-color: #025ce2;
+
+}
+td{
+
 }
 
-.sort_bar{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin-bottom: 15px;
+.first_row{
+    border :3px solid black;
 }
-/*.likebutton_bar  {*/
-/*    display: flex;*/
-/*}*/
-.footerbar {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 11%;
-	background: #E6E6E6;
-    align-items: center;
-    margin-left: auto;
-    justify-content: right;
+
+.table_row_margin{
+    height: 16vh;
+    background-color: white;
 }
-footer img{
-    padding: 0 20px 0 20px;
-    width: 70px;
-    height: 70px;
-    float: right;
+.table_column_margin{
+    width: 8vw;
+    background-color: white;
 }
+.content_board{
+    border-radius: 30px;
+}
+
