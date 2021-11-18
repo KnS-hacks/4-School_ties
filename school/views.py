@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from django.utils import timezone
+from account.models import User
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -19,7 +20,11 @@ def notice_post(request):
         new_notice.Notice_image = request.FILES.get('image')
         new_notice.Notice_body = request.POST['body']
         new_notice.Notice_pub_date = timezone.now()
+        user_id = request.user.id
         new_notice.save()
+        save_score = User.objects.get(id = user_id)
+        save_score.rank_count += 1
+        save_score.save()
         return redirect('notice')
     else:
         return render(request, 'notice_new.html')
@@ -48,6 +53,10 @@ def notice_update(request, id):
 #공지사항 삭제
 def notice_delete(request, id):
     notice_delete = Notice.objects.get(id = id)
+    user_id = request.user.id
+    save_score = User.objects.get(id = user_id)
+    save_score.rank_count -= 1
+    save_score.save()
     notice_delete.delete()
     return redirect('notice')
 
@@ -113,3 +122,9 @@ def club_board(request):
 def market_board(request):
     Market_boards = Market_board.objects.all()
     return render(request, 'club.html',{'Market_boards':Market_boards})
+
+
+#게시판 랭킹
+def rank(request):
+    rank = User.objects.all().order_by('-rank_count')
+    return render(request, 'rank.html', {"rank":rank})

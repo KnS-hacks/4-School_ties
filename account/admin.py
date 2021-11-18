@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
 
     fieldsets = (
         (None, {"fields": ("username", "password", "real_name", "email",
-                           "uni_num", "status", "card", "approval", 'is_staff')},),
+                           "uni_num", "status", "card", "approval","rank_count" 'is_staff')},),
     )
     
 
@@ -24,4 +24,5 @@ class CustomUserAdmin(UserAdmin):
         "status",
         "card",
         "approval",
+        "rank_count",
     )
