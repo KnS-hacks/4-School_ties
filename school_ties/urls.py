@@ -25,6 +25,7 @@ urlpatterns = [
     path('home/', S.home, name='home'),
     path('',S.start, name="start"),
     path('notice/', S.notice, name='notice'),
+    path('mainpage/',S.mainpage, name='mainpage'),
     path('notice/post/', S.notice_post, name='notice_post'),
     path('notice/notice_detail/<str:id>', S.notice_detail, name='notice_detail'),
     path('notice/notice_edit/<str:id>', S.notice_edit, name='notice_edit'),

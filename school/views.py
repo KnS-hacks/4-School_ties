@@ -15,6 +15,10 @@ def notice(request):
     Notices = Notice.objects.all()
     return render(request, 'notice.html',{'Notices':Notices})
 
+## 메인 자유게시판
+def mainpage(requset):
+    return render(requset, 'mainpage.html')
+
 ## 시작화면 주소##
 def start(request):
     return render(request, 'start.html')

@@ -12,7 +12,7 @@
     <p><공지사항 CRUD 테스트 중></p>
     {%for a in Club_boards%}
     <div>
-        <a href = "{%url 'new'}">글쓰기</a>
+        <a href = "{%url 'new'%}">글쓰기</a>
         <h2>{{a.Club_title}}</h2>
         <h2>{{a.Club_pub_date}}</h2>
         <h2>{{a.Club_author}}</h2>
