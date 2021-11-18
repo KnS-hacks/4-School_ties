@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>게시글 수정</title>
+</head>
+<body>
+    <form action = "{%url 'notice_update' notice.id%}" method = "POST" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <input type = "text" name = "title" placeholder="제목">
+        <input type = "text" name = "author" placeholder="작성자">
+        <textarea name = "body" cols = "100" row = "100" placeholder="내용"></textarea>
+        첨부파일: <input type = "file" name = "image">
+        <button type = "submit">작성하기</button>
+    </form>
+</body>
+</html>

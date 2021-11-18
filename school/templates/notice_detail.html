@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/notice.css'%}"
+    <title>Document</title>
+</head>
+<body>
+    <div>      
+        <h2>{{detail_notice.Notice_title}}</h2>
+        <h2>{{detail_notice.Notice_pub_date}}</h2>
+        <h2>{{detail_notice.Notice_author}}</h2>
+        <h2>{{detail_notice.Notice_body}}</h2>
+        {%if detail_notice.Notice_image%}
+        <p><img src="{{ detail_notice.Notice_image.url }}" alt="X"/></p>
+        {%endif%}
+        <a href="{% url 'notice_edit' detail_notice.id %}"><button type = "submit">수정</button></a>
+        <a href="{% url 'notice_delete' detail_notice.id %}"><button type="submit">삭제</button></a>
+    </div>
+
+</body>
+</html>
