@@ -20,7 +20,7 @@ def notice_post(request):
         new_notice.Notice_body = request.POST['body']
         new_notice.Notice_pub_date = timezone.now()
         new_notice.save()
-        return redirect('home')
+        return redirect('notice')
     else:
         return render(request, 'notice_new.html')
 
@@ -44,13 +44,44 @@ def notice_update(request, id):
     notice_update.save()
     return redirect('notice_detail', notice_update.id)
 
-#공지사항 삭제
+#공지사항 delete
 def notice_delete(request, id):
     notice_delete = Notice.objects.get(id = id)
     notice_delete.delete()
     return redirect('notice')
 
-###자유게시판
+# 공지사항 댓글 create
+def notice_comment_c(request, id):
+    if request.method == 'POST':
+        Noc = No_comment()
+        Noc.notice = get_object_or_404(Notice, pk = id)
+        Noc.Noc_author = request.POST['author']
+        Noc.Noc_content = request.POST['content']
+        Noc.Noc_time = timezone.datetime.now()
+        Noc.save()
+        return redirect('notice_detail', id)
+
+# 공지사항 댓글 delete
+def notice_comment_d(request, id, comment_id):
+    my_Noc = No_comment.objects.get(pk = comment_id)
+    my_Noc.delete()
+    return redirect('notice_detail', id)
+
+# 공지사항 댓글 update
+def notice_comment_u(request, id, comment_id):
+    if request.method == 'POST':
+        up_Noc = get_object_or_404(No_comment, pk=comment_id)
+        up_Noc.Noc_author = request.POST['author']
+        up_Noc.Noc_content = request.POST['content']
+        up_Noc.save()
+        return redirect('notice_detail', id)
+    else:
+        notice = get_object_or_404(Notice, pk=id)
+        comment = get_object_or_404(No_comment, pk=comment_id)
+        return render(request, 'notice_comment_edit.html', {'notice':notice, 'comment':comment})  
+
+
+### 자유게시판
 def free_board(request):
     Free_boards = Free_board.objects.all()
     return render(request, 'free.html',{'Free_boards':Free_boards})
