@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-# notice CRUD
+# 공지 게시판(공지 게시판 데이터 쌓이는 곳)
 class Notice(models.Model) :
     Notice_title = models.CharField(max_length=2000)
     Notice_author = models.CharField(max_length=50)
@@ -12,6 +12,7 @@ class Notice(models.Model) :
     def __str__(self):
         return self.Notice_title
 
+# 공지 게시판 댓글
 class Notice_Comment(models.Model):
     notice_content = models.CharField(max_length=500)
     notice_author = models.CharField(max_length=50)
@@ -21,6 +22,7 @@ class Notice_Comment(models.Model):
     def __str__(self):
         return self.notice_content
 
+# 자유 게시판
 class Free_board(models.Model) :
     Free_title = models.CharField(max_length=2000)
     Free_author = models.CharField(max_length=50)
@@ -31,6 +33,7 @@ class Free_board(models.Model) :
     def __str__(self):
         return self.Free_title
 
+# 스터디 게시판
 class Study_board(models.Model) :
     Study_title = models.CharField(max_length=2000)
     Study_author = models.CharField(max_length=50)
@@ -41,6 +44,7 @@ class Study_board(models.Model) :
     def __str__(self):
         return self.Study_title
 
+# 공모전 게시판
 class Contest_board(models.Model) :
     Contest_title = models.CharField(max_length=2000)
     Contest_author = models.CharField(max_length=50)
@@ -51,6 +55,7 @@ class Contest_board(models.Model) :
     def __str__(self):
         return self.Contest_title
 
+# 졸업생 게시판
 class Graduate_board(models.Model) :
     Graduate_title = models.CharField(max_length=2000)
     Graduate_author = models.CharField(max_length=50)
@@ -61,6 +66,7 @@ class Graduate_board(models.Model) :
     def __str__(self):
         return self.Graduate_title
 
+# 동아리 게시판
 class Club_board(models.Model) :
     Club_title = models.CharField(max_length=2000)
     Club_author = models.CharField(max_length=50)
@@ -71,6 +77,7 @@ class Club_board(models.Model) :
     def __str__(self):
         return self.Club_title
 
+# 중고 서적 게시판
 class Market_board(models.Model) :
     Market_title = models.CharField(max_length=2000)
     Market_author = models.CharField(max_length=50)
