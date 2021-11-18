@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from django.utils import timezone
 # Create your views here.
@@ -24,8 +24,31 @@ def notice_post(request):
     else:
         return render(request, 'notice_new.html')
 
+#공지사항 detail
+def notice_detail(request, id):
+    detail_notice = get_object_or_404(Notice, pk = id)
+    return render(request, 'notice_detail.html', {'detail_notice':detail_notice})
 
+#공지사항 update
+def notice_edit(request, id):
+    notice = Notice.objects.get(id = id)
+    return render(request, 'notice_edit.html', {'notice': notice})
 
+def notice_update(request, id):
+    notice_update = Notice.objects.get(id = id)
+    notice_update.Notice_title = request.POST['title']
+    notice_update.Notice_author = request.POST['author']
+    notice_update.Notice_image = request.FILES.get('image')
+    notice_update.Notice_body = request.POST['body']
+    notice_update.Notice_pub_date = timezone.now()
+    notice_update.save()
+    return redirect('notice_detail', notice_update.id)
+
+#공지사항 삭제
+def notice_delete(request, id):
+    notice_delete = Notice.objects.get(id = id)
+    notice_delete.delete()
+    return redirect('notice')
 
 ###자유게시판
 def free_board(request):

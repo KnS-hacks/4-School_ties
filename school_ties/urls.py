@@ -26,7 +26,10 @@ urlpatterns = [
 
     path('notice/', S.notice, name='notice'),
     path('notice/post/', S.notice_post, name='notice_post'),
-
+    path('notice/notice_detail/<str:id>', S.notice_detail, name='notice_detail'),
+    path('notice/notice_edit/<str:id>', S.notice_edit, name='notice_edit'),
+    path('notice/notice_update/<str:id>', S.notice_update, name='notice_update'),
+    path('notice/notice_delete/<str:id>', S.notice_delete, name='notice_delete'),
 
     path('free/', S.free_board, name='free'),
     path('study/', S.study_board, name='study'),

@@ -20,6 +20,7 @@
         {%if a.Notice_image%}
         <p><img src="{{ a.Notice_image.url }}" alt="X"/></p>
         {%endif%}
+        <a href="{% url 'notice_detail' a.id %}">자세히 보기</a>
     </div>
     {%endfor%}
 </body>
