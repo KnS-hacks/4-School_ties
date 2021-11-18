@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel ="stylesheet" href="{%  static 'css/start.css' %}">
+</head>
+    <body>
+        <div id = "main">
+            <div id = "cloudImg2">
+                <img src = "{% static 'img/right.svg' %}" alt ="cloud">
+            </div>
+            <div id = "text">
+                <p>학과 생활을 재밌고 </p>
+                <p>간편하게</p>
+            </div>
+            <div id = "cloudImg1">
+                <img src = "{% static 'img/leftcloud.svg' %}" alt ="cloud">
+            </div>
+
+
+
+        </div>
+        <div id = "side" >
+            <div id = "img">
+                학연
+            </div>
+            <div id = "join">
+                <div id = "text">회원 가입 하기</div>
+            </div>
+            <div id = "login">
+                <div id = "text">로그인 하기</div>
+            </div>
+        </div>
+    </body>
+</html>

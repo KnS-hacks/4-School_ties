@@ -10,6 +10,10 @@ def notice(request):
     Notices = Notice.objects.all()
     return render(request, 'notice.html',{'Notices':Notices})
 
+## 시작화면 주소##
+def start(request):
+    return render(request, 'start.html')
+
 # 공지사항 create
 def notice_post(request):
     if request.method == 'POST':
