@@ -1,0 +1,51 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block title %}스터디게시판 댓글 수정{% endblock %}
+{% block link %}{% static 'css/boardform.css' %}{% endblock %}
+
+{% block content %}
+
+<div id="board_name">
+    <h2>스터디게시판 댓글 수정</h2>
+</div>
+
+<div class="boardcontainner">
+<form id="form" action = "{% url 'update_study_comment' study.id comment.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- <div id="title">
+        <a>제목</a>
+        <input id="input" type="text" name="title">
+    </div>
+    <div class="imageset">
+        <label for="chooseFile">
+            👉 CLICK HERE! 👈
+        </label>
+    </div>
+    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)"> -->
+
+    <div id="text">
+        <div id="atag"><a>댓글</a></div>
+        <textarea style="resize: none" rows="20" cols="30" name="content">{{ update_notice_comment.notice_content }}</textarea>
+    </div>
+    <div id="submit">
+        <input type="submit" value="수정하기">
+    </div>
+</form>
+    </div>
+
+</div>
+
+{% endblock %}
+
+<!-- <body>
+    <h1>공지게시판 댓글 수정하기</h1>
+
+    <form action = "{% url 'update_notice_comment' notice.id comment.id %}" method = "POST" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <!-- <p>작성자 : <input type="text" name="author" value="{{ update_notice_comment.notice_author }}"></p> -->
+        <!-- <p>댓글 : <textarea name="content" cols="100" row="300">{{ update_notice_comment.notice_content }}</textarea></p>
+        <button type="submit">submit</button>
+        </form>
+</body>
+</html> -->
