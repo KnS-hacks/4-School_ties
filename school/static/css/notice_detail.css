@@ -49,7 +49,7 @@ html{
 
 .main {
     grid-area: main;
-    margin-top: 2vh;
+    margin-top: 10vh;
 }
 
 .marginR {
@@ -81,63 +81,45 @@ html{
 
 }
 .mainboard{
-
-    background-color: var(--maincolor);
-}
-.introduce{
-
-}
-.writetext{
-    display: flex !important;
-    background-color: var(--maincolor);
     border-radius: 30px;
-    height: 15vh;
-    padding : 1rem 0.8rem 1rem 0.8rem;
-    flex-direction: row ;
+    background-color: var(--maincolor);
 }
-.writetext div{
+
+.coment_text{
+    display: flex;
+    height: 100%;
+    padding : 1rem 0.8rem 1rem 0.8rem;
+    flex-direction: row;
+}
+.coment_text div{
     border:  3px solid black;
+    display: flex;
 }
 .writeList{
     overflow:auto;
     height: auto;
     border-bottom: black 1px solid ;
     padding: 10px;
-    background-color: var(--maincolor);
 }
-
 .writeList > .title{
         margin: 2vh 0 10px 1vh;
         font-size: var(--fonit20);
 
 }
-.sort_bar{
-    background-color: var(--maincolor);
-}
-.writearea{
-
-        border-color: var(--maincolor);
-        font-family: 'IM_Hyemin-Bold';
-        font-size: var(--fonit20);
-}
-.test1{
-    height: 100%;
-    width: 100%;
-}
-.test1 button{
-    width: 100%;
-    height: 100%;
+#coment_area{
+    font-family: 'IM_Hyemin-Bold';
+    font-size: var(--fonit20);
+    width: 95%;
 }
 .writeList > .mainstory{
     border: 1px solid black ;
     position: relative;
     height: 6vh;
     border-radius: 10px;
-    margin: 0 1vw 1vh 1vw;
     background-color: white;
+    margin: 0 1vw 1vh 1vw;
 }
 .number{
-    background-color: var(--maincolor);
      height: 120px;
 }
 
@@ -151,21 +133,18 @@ html{
 .content{
     font-family: 'IM_Hyemin-Bold';
 
-      display:flex;
+    display:flex;
     align-items: center;
     justify-content: center;
     margin: 0 20px 0 20px;
+    width: 100%;
 }
-.imagesize{
-    width: 40px;
-    height: 40px;
-    border: black 1px solid;
+.coment{
+    padding: 10px;
+      overflow:auto;
+    height: auto;
 }
 
-.mainboard{
-    height: 100%;
-    border-radius: 20px;
-}
 .content a{
     margin: 0 3vw 0 3vw;
     border-left:  solid white 2px;
@@ -180,38 +159,43 @@ html{
     vertical-align: center;
     margin-top: 40px;
 }
-.mains{
-    display: flex !important;
 
-}
-
-
-.sub_1{
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 50px;
-}
 .sort_bar{
     display: flex;
     flex-direction: row;
     height: 100%;
     margin-bottom: 15px;
 }
-/*.likebutton_bar  {*/
-/*    display: flex;*/
-/*}*/
-.writeconpent{
-    margin-bottom: 20px;
-    border-bottom: 1px solid white;
+.introduce{
+    display: flex !important;
 }
-.look{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.notice_board{
-    background-color: white;
-    width: 90%;
-    display: flex;
 
-    flex-direction: row;
+.update{
+    display: flex !important;
+    justify-content: right;
+}
+.commentline{
+    display: flex !important;
+    height: 60px;
+}
+.writeimg{
+    margin-left: 10px;
+    border-radius: 30px;
+    margin-right: 20px;
+    border: black 2px solid;
+}
+.commentupdate{
+    display: flex !important;
+    justify-content: right;
+}
+.coment_box{
+    height: 20px;
+    background-color: white;
+    margin: 20px;
+}
+.comment-date{
+    margin-top: 5px;
+}
+.comment__box{
+    margin-bottom: 10px;
 }
