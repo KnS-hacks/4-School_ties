@@ -1,18 +1,69 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>mainpage</title>
+    <link rel ="stylesheet"  href=" {% static 'css/login.css' %}">
+
+
 </head>
-<body>
-    <form method = "POST" action = "{%url 'login'%}">
-        {%csrf_token%}
-        <input type = "text" name = "username" placeholder="아이디를 입력하세요."><br>
-        <input type = "password" name = "password" placeholder="비밀번호를 입력하세요.">
-        <button>로그인</button>
-        <p>{{error}}</p>
-    </form>
+    <body>
+    <div class="containnerLayout">
+
+          <div class="cloud1" >
+        <img src="/img/cloud%201.svg" alt="cloud2">
+    </div>
+    <div class="cloud2">
+        <img src="/img/cloud%202.svg" alt="cloud2">
+    </div>
+
+
+    <div class="upLayout"></div>
+    <div class="LMarginLayout"></div>
+
+    <div class="LoginLayout">
+            <div class="LoginCenter">
+                <div class="logo">학연</div>
+                <div class="membership">로그인</div>
+
+
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="email">아이디</div>
+                    <input class="email_submit_bar" type="text" name="username" placeholder="아이디를 입력하세요."><br>
+                    <div class="submit">비밀번호</div>
+                    <input class="email_submit_bar" type="password" name="password" placeholder="비밀번호를 입력하세요.">
+                    <div class ="sureLogin"><button type="submit" id="button">로그인</button></div>
+                    <p>{{ error }}</p>
+                </form>
+{#                <div class="email">#}
+{#                    <div class="email_name">아이디</div>#}
+{#                    <div class="email_bar">#}
+{#                        <div class="idnav">이메일</div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="emailContainner"></div>#}
+{#                    <div class="email_submit">#}
+{#                        <div class="submit">비밀번호</div>#}
+{#                        <div class="email_submit_bar">#}
+{#                            <div class="pwnav">비밀번호</div>#}
+{#                        </div>#}
+{#                    </div>#}
+
+{#                     <div class="sureLogin">#}
+{#                            <div class="pwnav">로그인하기</div>#}
+{#                        </div>#}
+                    <div class="undercontent">
+                        <div class="loginbutton" id ="join"><a href ={% url 'signup' %}>회원가입</a></div>
+                    </div>
+            </div>
+    </div>
+
+        <div class="RMarginLayout"></div>
+        <div class="underLayout"></div>
+    </div>
 </body>
+
 </html>

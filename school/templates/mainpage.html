@@ -1,0 +1,114 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block title %} 로그인 페이지{% endblock %}
+{% block link %}{% static 'css/mainpage.css' %}{% endblock %}
+
+{% block content %}
+<!--    메인 컨테이너 시작-->
+       <div class="containner">
+            <div class="header"></div>
+            <div class="marginL"></div>
+            <div class="boardnav">
+                <div class="middleboard">
+                    <div class="mainboard">
+                          <i class="content">
+                              <a>자유 게시판</a>
+                              <a>스터디 게시판</a>
+                              <a>공모전 게시판</a>
+                              <a>졸업생 게시판</a>
+                              <a>동아리 게시판</a>
+                          </i>
+                    </div>
+                </div>
+            </div>
+            <div class="marginR"></div>
+            <div class="main">
+                <div class="name">자유게시판</div>
+                <div class="h"></div>
+
+                <div class="writetext">
+                    <div class="test1">
+                        <textarea class="writearea" placeholder="글을 작성해 주세요"></textarea>
+                    </div>
+                    <div class="test2">
+                        <button type="button" class="btn btn-light">Light</button>
+                    </div>
+                </div>
+
+
+                <div class="h"></div>
+                <div class="writeList">
+                    <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
+                        <FORM>
+                            <button class="like">추천</button>
+                            <button class="liketotal">글수</button>
+                       </FORM>
+                    </div>
+                    <div class="mainstory">help...</div>
+                </div>
+                <div class="writeList">
+                    <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
+                        <FORM>
+                            <button class="like">추천</button>
+                            <button class="liketotal">글수</button>
+                       </FORM>
+                    </div>
+                    <div class="mainstory">help...</div>
+                </div>
+                <div class="writeList">
+                    <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
+                        <FORM>
+                            <button class="like">추천</button>
+                            <button class="liketotal">글수</button>
+                       </FORM>
+                    </div>
+                    <div class="mainstory">help...</div>
+                </div>
+                <div class="writeList">
+                    <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
+                        <FORM>
+                            <button class="like">추천</button>
+                            <button class="liketotal">글수</button>
+                       </FORM>
+                    </div>
+                    <div class="mainstory">help...</div>
+                </div>
+
+
+                <div class="number">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            ></div>
+           <div class="undermargin"></div>
+
+        </div>
+{% endblock %}
+
+
+
+
+
+
