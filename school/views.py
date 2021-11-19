@@ -1,27 +1,32 @@
+from django.core import paginator
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from django.utils import timezone
 from account.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
-### 공지사항
-@login_required
-def notice(request):
-    Notices = Notice.objects.all()
-    return render(request, 'notice.html',{'Notices':Notices})
-
 ## 메인 자유게시판
 def mainpage(requset):
     return render(requset, 'mainpage.html')
 
-## 시작화면 주소##
+## 시작화면 주소 ##
 def start(request):
     return render(request, 'start.html')
+
+### 공지사항
+@login_required
+def notice(request):
+    Notices = Notice.objects.all().order_by('-Notice_pub_date')
+    paginator = Paginator(Notices, 2)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'notice.html',{'Notices':page})
 
 # 공지사항 create
 @login_required
@@ -35,7 +40,7 @@ def notice_post(request):
         print(user)
         # 작성자 = user 가 됩니다. 
         new_notice.Notice_title = request.POST['title']
-        new_notice.Notice_author = request.user.real_name
+        new_notice.Notice_author = user
         new_notice.Notice_image = request.FILES.get('image')
         new_notice.Notice_body = request.POST['body']
         new_notice.Notice_pub_date = timezone.now()
@@ -68,7 +73,7 @@ def notice_update(request, id):
         # user_id 값과 User 모델의 객체 중 일치하는 값. 즉 글 작성자의 user 객체를 user 변수에 저장합니다. 
     user = User.objects.get(id = user_id)    
     notice_update.Notice_title = request.POST['title']
-    notice_update.Notice_author = request.user.real_name
+    notice_update.Notice_author = user
     notice_update.Notice_image = request.FILES.get('image')
     notice_update.Notice_body = request.POST['body']
     notice_update.Notice_pub_date = timezone.now()
@@ -97,7 +102,7 @@ def create_notice_comment(request, notice_id):
         print(user)
         # 작성자 = user 가 됩니다. 
         notice_comment.notice = get_object_or_404(Notice, pk=notice_id)
-        notice_comment.notice_author = request.user.real_name
+        notice_comment.notice_author = user
         notice_comment.notice_content = request.POST['content']
         notice_comment.notice_at = timezone.datetime.now()
         notice_comment.save()
@@ -118,7 +123,7 @@ def update_notice_comment(request, id, comment_id):
         # user_id 값과 User 모델의 객체 중 일치하는 값. 즉 글 작성자의 user 객체를 user 변수에 저장합니다. 
         user = User.objects.get(id = user_id)
         update_notice_comment = get_object_or_404(Notice_Comment, pk=comment_id)
-        update_notice_comment.notice_author = request.user.real_name
+        update_notice_comment.notice_author = user
         update_notice_comment.notice_content = request.POST['content']
         update_notice_comment.save()
         return redirect('notice_detail', id)
@@ -128,7 +133,7 @@ def update_notice_comment(request, id, comment_id):
         return render(request, 'notice_comment_edit.html', {'notice':notice, 'comment':comment})  
 
 
-###자유게시판
+### 자유게시판
 @login_required
 def free_board(request):
     Free_boards = Free_board.objects.all()
@@ -136,7 +141,7 @@ def free_board(request):
 
 
 
-### 스터디 게시판 ??
+### 스터디 게시판 
 @login_required
 
 def study_board(request):
@@ -162,20 +167,15 @@ def club_board(request):
     Club_boards = Club_board.objects.all()
     return render(request, 'club.html',{'Club_boards':Club_boards})
 
-# 중고 서적 게시판
+### 중고 서적 게시판
 @login_required
 def market_board(request):
     Market_boards = Market_board.objects.all()
     return render(request, 'club.html',{'Market_boards':Market_boards})
 
 
-#게시판 랭킹
+### 게시판 랭킹
 @login_required
 def rank(request):
     rank = User.objects.filter(status = "학부생").order_by('-rank_count')
     return render(request, 'rank.html', {"rank":rank})
-
-#글쓰기 폼 양식
-def boardform(request):
-    return render(request, 'boardform.html')
-

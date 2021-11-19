@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/notice.css'%}"
+    <link rel="stylesheet" href="{% static 'css/notice.css'%}">
     <title>Document</title>
 </head>
 <body>
@@ -19,8 +19,8 @@
         {%if detail_notice.Notice_image%}
         <p><img src="{{ detail_notice.Notice_image.url }}" alt="X"/></p>
         {%endif%}
-        {% if user.real_name == detail_notice.Notice_author %}  
-            <a href="{% url 'notice_edit' detail_notice.id %}"><b{utton type = "submit">수정</b></a>
+        {% if user == detail_notice.Notice_author %}  
+            <a href="{% url 'notice_edit' detail_notice.id %}"><button type = "submit">수정</button></a>
             <a href="{% url 'notice_delete' detail_notice.id %}"><button type="submit">삭제</button></a>
         {%endif%}
     </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
                 <!-- 댓글 삭제 -->
-                {%if user.real_name == comment.notice_author%}
+                {%if user == comment.notice_author%}
                 <a href = "{% url 'delete_notice_comment' detail_notice.id comment.id %}" method="POST" enctype="multipart/form-data">
                     <button>삭제</button>
                 </a>

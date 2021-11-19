@@ -1,20 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    [회원가입 승인]
-    <br>
-    <br>
-    {%for a in check_users%}
-    {{a.username}}|{{a.real_name}}|{{a.uni_num}}|{{a.email}}|{{a.status}}|{{a.approval}}</p>
-    <a href = "{% url 'check_detail' a.id %}">관리</a>
-    <br>
-    <br>
-    {%endfor%}
-</body>
-</html>
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block link %}{% static 'css/check.css' %} {% endblock %}
+{% block content %}
+    <div class="upmargin"></div>
+    <div class="gridContainner">
+
+    <div class="LMarginLayout"></div>
+        <div class="RMarginLayout"></div>
+        <div class="main">
+            <div id="board_name">
+                <h2>회원관리</h2>
+            </div>
+
+            <div class="boardcontainner">
+                <div class="">
+                    [회원관리 상태]
+                </div>
+                <br>
+                <br>
+                <div class="bc">
+                    <table class="bulletin_board_table">
+                        <tr class="test"><!-- 첫번째 줄 시작 -->
+                            <div class="hh">
+                                <td class="id">아이디</td>
+                                <td class="realname">이름</td>
+                                <td class="classnumber">학번</td>
+                                <td class="email">이메일</td>
+                                <td class="등록형태">등록형태</td>
+                                <td class="등록형태">승인상태</td>
+                            </div>
+                        </tr>
+                          {% for a in check_users %}
+                        <tr class="test"><!-- 첫번째 줄 시작 -->
+                            <div class="gg">
+                                    <td class="id"> {{ a.username }}</td>
+                                    <td class="realname">{{ a.real_name }}</td>
+                                    <td class="classnumber">{{ a.uni_num }}</td>
+                                    <td class="email">{{ a.email }}</td>
+                                    <td class="등록형태">{{ a.status }} </td>
+                                    <td class="등록형태">{{ a.approval }}</td>
+                            </div>
+                        </tr>
+                         {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="undermargin"></div>
+
+
+{% endblock %}
