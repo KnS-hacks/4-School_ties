@@ -174,3 +174,8 @@ def market_board(request):
 def rank(request):
     rank = User.objects.filter(status = "학부생").order_by('-rank_count')
     return render(request, 'rank.html', {"rank":rank})
+
+#글쓰기 폼 양식
+def boardform(request):
+    return render(request, 'boardform.html')
+
