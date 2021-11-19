@@ -23,5 +23,16 @@
         <a href="{% url 'notice_detail' a.id %}">자세히 보기</a>
     </div>
     {%endfor%}
+    {% if Notices.has_previous %}
+        <a href="?page={{Notices.previous_page_number}}"><</a>
+    {% endif %}
+
+    <span>{{Notices.number}}</span>
+    <span>/</span>
+    <span>{{Notices.paginator.num_pages}}</span>
+
+    {% if Notices.has_next %}
+    <a href="?page={{Notices.next_page_number}}">></a>
+    {% endif %}
 </body>
 </html>
