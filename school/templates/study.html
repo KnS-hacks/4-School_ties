@@ -22,12 +22,12 @@
             </div>
             <div class="marginR"></div>
             <div class="main">
-                <div class="name">자유게시판</div>
+                <div class="name">스터디</div>
                 <div class="h"></div>
 
                 <div class="writetext">
                     <div class="test1">
-                  <button type="button" class="btn btn-light">   글을 작성해주세요 </a></button>
+                        <a href = "{%url 'study_post'%}"><button type="button" class="btn btn-light">글을 작성해 주세요</button></a>
                     </div>
                 </div>
 
@@ -35,54 +35,51 @@
 
                 <div class="writeList">
                     <div class="sort_bar">
-                        <form id="form" method="post" enctype="multipart/form-data">
-                            {% for a in Study_boards %}
-                                <div>
-                                    <a>제목</a>
-                                     <a href= "{% url 'new'%}">
-                                    <h2>{{ a.Study_title }}</h2>
-                                </div>
 
-                                <h2>{{ a.Study_pub_date }}</h2>
-                                <h2>{{ a.Study_author }}</h2>
-                                <h2>{{ a.Study_body }}</h2>
-                                <p><img src="{{ a.Study_board_image.url }}" alt="X"/></p>
-                                </div>
-                            {% endfor %}
-                    </form>
 
+                        {% for a in Study_boards %}
+                            <div class="writeconpent">
+                                <div class="mains">
+                                    <h2>제목 : {{ a.Study_title }}</h2> {# 제목 #}
+                                    <div class="sub">
+                                        <h2 class="sub_1"> 시간 : {{ a.Study_pub_date }}</h2> {# 시간 #}
+                                        <h2 class="sub_1">작성자 :{{ a.Study_author }}</h2> {# 작성자 #}
+                                    </div>
+                                </div>
+                                <div class="notice_board">
+                                    <h2> {{ a.Study_body }}</h2> {# 본문 #}
+                                    </div>
+                                <a href="{% url 'study_detail' a.id %}" class="look">자세히 보기</a>
+                            </div>
+                            {%endfor%}
                 </div>
-                <div class="mainstory">help...</div>
             </div>
 
       <div class="number">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only"></span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+          <nav aria-label="Page navigation example">
+              <ul class="pagination">
+
+                  {% if Study_boards.has_previous %}
+                      <a href="?page={{ Study_boards.previous_page_number }}"><</a>
+                  {% endif %}
+
+                  <span>{{ Study_boards.number }}</span>
+                  <span>/</span>
+                  <span>{{ Study_boards.paginator.num_pages }}</span>
+
+                  {% if Study_boards.has_next %}
+                      <a href="?page={{ Study_boards.next_page_number }}">></a>
+                  {% endif %}
+
+              </ul>
+          </nav>
+      </div>
             </div>
            <div class="undermargin"></div>
 
         </div>
 
 {% endblock %}
-
 
 
 
