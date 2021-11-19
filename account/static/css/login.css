@@ -175,13 +175,13 @@ body {
     border: 3px solid rgba(33, 33, 33, .5);
     border-radius: 50px;
     height: 60px;
-    font-size: var(—fonit20);
-    background-color: var(—maincolor);
+    font-size: var(—-fonit20);
+    background-color: var(-—maincolor);
     margin-top: 40px;
 }
 #button{
-    font-size: var(—fonit20);
-    background-color: var(—maincolor);
+    font-size: var(—-fonit20);
+    background-color: var(—-maincolor);
     border:none;
     width: 100%;
     height: 60px;

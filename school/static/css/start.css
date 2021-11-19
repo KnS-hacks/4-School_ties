@@ -59,9 +59,9 @@ body{
 #side #img{
     margin-top: 122px;
     margin-left: 17.7%;
-    width:148px;
-    height: 100px;
-    background-color: black;
+    width:64.3%;
+    height: 13.7%;
+    
 }
 
 
@@ -83,6 +83,10 @@ body{
     display: inline-block;
     margin-top: 7px;
 }
+#side #join #text a{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+}
 #side #login{
     margin-top: 10%;
     width: 87%;
@@ -95,7 +99,16 @@ body{
     font-size: 2.0vw;
     font-family: 'IM_Hyemin-Bold';
 }
+#side #img img{
+    width: 100%;
+    height: 100%;
+}
 #side #login #text{
     display: inline-block;
     margin-top: 7px;
+}
+
+#side #login #text a{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
 }
