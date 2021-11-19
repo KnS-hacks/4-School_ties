@@ -1,20 +1,9 @@
+{%extends "base.html"%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="kr">
-<head>
-    <meta charset="UTF-8">
-    <title>mainpage</title>
-    <link rel ="stylesheet"  href=" {% static 'css/login.css' %}">
-
-
-</head>
-    <body>
+{%block title%}로그인{%endblock%}
+{%block link%}{% static 'css/login.css' %}{%endblock%}
+{%block content%}
     <div class="containnerLayout">
-
-          
-   
-
-
     <div class="upLayout"></div>
     <div class="LMarginLayout"></div>
 
@@ -35,7 +24,7 @@
                     <div class ="sureLogin"><button type="submit" id="button">로그인</button></div>
                     <p>{{ error }}</p>
                 </form>
-{#                <div class="email">#}
+<!-- {#                <div class="email">#}
 {#                    <div class="email_name">아이디</div>#}
 {#                    <div class="email_bar">#}
 {#                        <div class="idnav">이메일</div>#}
@@ -52,9 +41,9 @@
 
 {#                     <div class="sureLogin">#}
 {#                            <div class="pwnav">로그인하기</div>#}
-{#                        </div>#}
+{#                        </div>#} -->
                     <div class="undercontent">
-                        <div class="loginbutton" id ="join"><a href ={% url 'signup' %}>회원가입</a></div>
+                        <div class="loginbutton" id ="join"><a href = {% url 'signup' %}>회원가입</a></div>
                     </div>
             </div>
     </div>
@@ -62,6 +51,4 @@
         <div class="RMarginLayout"></div>
         <div class="underLayout"></div>
     </div>
-</body>
-
-</html>
+{%endblock%}
