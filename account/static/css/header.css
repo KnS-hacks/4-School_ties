@@ -46,6 +46,9 @@
     color: black;
     display: flex;
 }
+.navbar_icons li{
+
+}
 .navbar_icons li a img{
     margin: 0 0.5vw 0 0.5vw;
 }
