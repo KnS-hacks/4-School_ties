@@ -6,66 +6,91 @@
 
 
 {%block content%}
-    
-    <div class="containner">
-        <div class="header"></div>
-        <div class="marginL"></div>
-        <div class="boardnav">
-            <div class="middleboard">
-                <div class="mainboard">
-                      <i class="content">
-                          <a>자유 게시판</a>
-                          <a>스터디 게시판</a>
-                          <a>공모전 게시판</a>
-                          <a>졸업생 게시판</a>
-                          <a>동아리 게시판</a>
-                      </i>
-                </div>
+
+<div class="containner">
+    <div class="header"></div>
+    <div class="marginL"></div>
+    <div class="boardnav">
+        <div class="middleboard">
+            <div class="mainboard">
+                <i class="content">
+                    <a>자유 게시판</a>
+                    <a>스터디 게시판</a>
+                    <a>공모전 게시판</a>
+                    <a>졸업생 게시판</a>
+                    <a>동아리 게시판</a>
+                </i>
             </div>
         </div>
-       <div class="marginR"></div>
-       <div class="main">
-           <table class="bulletin_board_table" >
-               <tr class="test"><!-- 첫번째 줄 시작 -->
-                   <td class="content_board"><div id="board">
-                    {%for a in notices%}
-                    <div>      
-                        <a href="{% url 'notice_detail' a.id %}">{{a.Notice_title}}</a>
+    </div>
+    <div class="marginR"></div>
+    <div class="main">
+        <table class="bulletin_board_table">
+            <tr class="test">
+                <!-- 첫번째 줄 시작 -->
+                <td class="content_board">
+
+                    <div id="board">
+                        <div class="test">
+                        <div class = "plz">
+                            <div id="board_name"><a>자유 게시판</a</div>
+                            <div id="more"><a href="">더보기</a></div>
+                        </div>
                     </div>
-                    {%endfor%}
-                   </div></td>
-                   <td class="table_column_margin"></td>
-                   <td class="content_board"><div id="board">2</div></td>
+                        {% for a in notices %}
+                        <div id="atag">
+                            <a href="{% url 'notice_detail' a.id %}">{{a.Notice_title}}</a>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </td>
+                <td class="table_column_margin"></td>
+                <td class="content_board">
+                    <div id="board">2</div>
+                </td>
 
-               </tr><!-- 첫번째 줄 끝 -->
-               <tr ><!-- 첫번째 두번째줄 여백 -->
-               </tr><!-- 첫번째 두번째줄 여백 끝 -->
-                       <td class="table_row_margin"></td>
-                       <td class="table_row_margin"></td>
-                       <td class="table_row_margin"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <!-- 첫번째 두번째줄 여백 -->
+            </tr><!-- 첫번째 두번째줄 여백 끝 -->
+            <td class="table_row_margin"></td>
+            <td class="table_row_margin"></td>
+            <td class="table_row_margin"></td>
 
-               <tr><!-- 두번째 줄 시작 -->
-                   <td class="content_board"><div id="board"></div></td>
-                   <td class="table_column_margin"></td>
-                   <td class="content_board"><div id="board"></div></td>
-               </tr><!-- 세번째 줄 끝 -->
-               <tr ><!-- 첫번째 두번째줄 여백 -->
-                       <td class="table_row_margin"></td>
-                       <td class="table_row_margin"></td>
-                       <td class="table_row_margin"></td>
-               </tr><!-- 첫번째 두번째줄 여백 끝 -->
-                    <tr><!-- 두번째 줄 시작 -->
-                   <td class="content_board"><div id="board"></div></td>
-                   <td class="table_column_margin"></td>
-                   <td class="content_board"><div id="board"></div></td>
-               </tr><!-- 세번째 줄 끝 -->
-           </table>
+            <tr>
+                <!-- 두번째 줄 시작 -->
+                <td class="content_board">
+                    <div id="board"></div>
+                </td>
+                <td class="table_column_margin"></td>
+                <td class="content_board">
+                    <div id="board"></div>
+                </td>
+            </tr><!-- 세번째 줄 끝 -->
+            <tr>
+                <!-- 첫번째 두번째줄 여백 -->
+                <td class="table_row_margin"></td>
+                <td class="table_row_margin"></td>
+                <td class="table_row_margin"></td>
+            </tr><!-- 첫번째 두번째줄 여백 끝 -->
+            <tr>
+                <!-- 두번째 줄 시작 -->
+                <td class="content_board">
+                    <div id="board"></div>
+                </td>
+                <td class="table_column_margin"></td>
+                <td class="content_board">
+                    <div id="board"></div>
+                </td>
+            </tr><!-- 세번째 줄 끝 -->
+        </table>
 
 
 
-       </div>
+    </div>
 
-       <div class="undermargin"></div>
+    <div class="undermargin"></div>
 
-       </div>
+</div>
 {% endblock %}

@@ -185,7 +185,7 @@ body {
     height: 60px;
     font-size: var(—-fonit20);
     margin-top: 40px;
-    background-color: #CDF0FF; !important
+    background-color: #CDF0FF !important;
 }
 .sureLogin #button{
     font-size: var(—-fonit20);

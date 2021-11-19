@@ -43,8 +43,11 @@
 .navbar_icons{
     padding-left: 0px;
     list-style: none;
-    color: white;
+    color: black;
     display: flex;
+}
+.navbar_icons li{
+
 }
 .navbar_icons li a img{
     margin: 0 0.5vw 0 0.5vw;
@@ -57,6 +60,7 @@ body{
 
 a{
     text-decoration: none;          /*a태그의 밑줄 제거*/
+    color : black;
 }
 
 

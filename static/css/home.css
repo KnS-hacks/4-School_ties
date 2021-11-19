@@ -129,10 +129,7 @@ margin-top: 15vh;
 .bulletin_board_table th{
     height: 1vh;
     border-color: black;
-
-}
-td{
-
+    
 }
 
 .first_row{
@@ -147,7 +144,24 @@ background-color: white;
 width: 8vw;
 background-color: white;
 }
-td.content_board{
-
+#board{
+background-color: #CDF0FF;
+height: 100%;
+width: 100%;
+border-radius: 44px;
 }
-
+.content_board{
+    width: 560px;
+    height: 402px;
+}
+#more{
+    display: inline-grid;
+}
+#atag{
+    background-color: white;
+    height: 50px;
+}
+#header{
+    display: flex;
+    flex-direction: column;
+}

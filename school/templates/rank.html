@@ -1,22 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{% load static %}
 
+{%block title%}rank{%endblock%}
+{%block link%}{%static 'css/rank.css'%}{%endblock%}
+
+
+{%block content%}
+        <div class="containner">
+            <div class="header"></div>
+            <div class="marginL"></div>
+            
+            <div class="main">
+                <div id="top">
+                    <ul>
+                        <li id ="rank"><a>순위</a></li>
+                        <li id ="info"><a>유저 정보</a></li>
+                        <li id ="point"><a>활동 포인트</a></li>
+                        <li id ="level"><a>레벨</a></li>
+                        <li id ="grade"><a>학년</a></li>
+                    </ul>
+                </div>
+                <div class="rank">
+                    <ul>
+                        {% for row in rank %}
+                        <li id ="rank"><a>{{row}}</a></li>
+                        <li id ="grade"><a> {{row.uni_num}}</a></li>
+                        <li id ="info"><a><img src="src/profile.png"> {{row.real_name}}</a></li>
+                        <li id ="point"><a>{{row.username}}</a></li>
+                        <li id ="level"><a>{{row.rank_count}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="undermargin"></div>
+        </div>
                     <p class="chart-title">통합 차트</p>
 
-                        {% for row in rank %}
-                            {{row.real_name}}
-                            {{row.uni_num}}
-                            {{row.username}}
-                            {{row.rank_count}}
-                            <br>
-                        {% endfor %}
 
-</body>
-</html>
+
+                        {% endblock %}
