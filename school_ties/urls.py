@@ -24,7 +24,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('home/', S.home, name='home'),
     path('',S.start, name="start"),
-    path('boardform/',S.boardform, name="boardform"),
+ #   path('boardform/',S.boardform, name="boardform"),
     path('notice/', S.notice, name='notice'),
     path('mainpage/',S.mainpage, name='mainpage'),
     path('notice/post/', S.notice_post, name='notice_post'),

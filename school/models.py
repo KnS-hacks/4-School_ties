@@ -5,7 +5,7 @@ from django.db import models
 class Notice(models.Model) :
     Notice_title = models.CharField(max_length=2000)
     Notice_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Notice_pub_date = models.DateField()
+    Notice_pub_date = models.DateTimeField(auto_now=True)
     Notice_body = models.TextField()
     Notice_image = models.ImageField(upload_to = "notice/", blank=True, null=True)
 
@@ -22,11 +22,21 @@ class Notice_Comment(models.Model):
     def __str__(self):
         return self.notice_content
 
+# 학과공지 게시판
+class Schedule(models.Model):
+    sche_title: models.CharField(max_length=100)
+    sche_pub_date = models.DateTimeField(auto_now=True)
+    sche_author: models.ForeignKey('account.User', on_delete=models.CASCADE)
+    sche_image: models.ImageField(upload_to = "schedule/", blank=True, null=True)
+    def __str__(self):
+        return self.sche_title
+
+
 # 자유 게시판
 class Free_board(models.Model) :
     Free_title = models.CharField(max_length=2000)
     Free_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Free_pub_date = models.DateField()
+    Free_pub_date = models.DateTimeField(auto_now=True)
     Free_body = models.TextField()
     Free_image = models.ImageField(upload_to = "Free_board/", blank=True, null=True)
 
@@ -47,7 +57,7 @@ class Free_Comment(models.Model):
 class Study_board(models.Model) :
     Study_title = models.CharField(max_length=2000)
     Study_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Study_pub_date = models.DateField()
+    Study_pub_date = models.DateTimeField(auto_now=True)
     Study_body = models.TextField()
     Study_image = models.ImageField(upload_to = "Study_board/", blank=True, null=True)
 
@@ -68,7 +78,7 @@ class Study_Comment(models.Model):
 class Contest_board(models.Model) :
     Contest_title = models.CharField(max_length=2000)
     Contest_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Contest_pub_date = models.DateField()
+    Contest_pub_date = models.DateTimeField(auto_now=True)
     Contest_body = models.TextField()
     Contest_image = models.ImageField(upload_to = "Contest_board/", blank=True, null=True)
 
@@ -89,7 +99,7 @@ class Contest_Comment(models.Model):
 class Graduate_board(models.Model) :
     Graduate_title = models.CharField(max_length=2000)
     Graduate_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Graduate_pub_date = models.DateField()
+    Graduate_pub_date = models.DateTimeField(auto_now=True)
     Graduate_body = models.TextField()
     Graduate_image = models.ImageField(upload_to = "Graduate_board/", blank=True, null=True)
 
@@ -110,7 +120,7 @@ class Graduate_Comment(models.Model):
 class Club_board(models.Model) :
     Club_title = models.CharField(max_length=2000)
     Club_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Club_pub_date = models.DateField()
+    Club_pub_date = models.DateTimeField(auto_now=True)
     Club_body = models.TextField()
     Club_image = models.ImageField(upload_to = "Club_board/", blank=True, null=True)
 
@@ -131,7 +141,7 @@ class Club_Comment(models.Model):
 class Market_board(models.Model) :
     Market_title = models.CharField(max_length=2000)
     Market_author = models.ForeignKey('account.User', on_delete = models.CASCADE)
-    Market_pub_date = models.DateField()
+    Market_pub_date = models.DateTimeField(auto_now=True)
     Market_body = models.TextField()
     Market_image = models.ImageField(upload_to = "Market_board/", blank=True, null=True)
 

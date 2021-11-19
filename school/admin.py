@@ -3,6 +3,7 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Notice)
+admin.site.register(Schedule)
 admin.site.register(Free_board)
 admin.site.register(Study_board)
 admin.site.register(Contest_board)
