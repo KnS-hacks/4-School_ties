@@ -37,11 +37,23 @@ urlpatterns = [
     path('notice/update_comment/<int:id>/<int:comment_id>', S.update_notice_comment, name = "update_notice_comment"),
 
     path('free/', S.free_board, name='free'),
+    path('free/post/', S.free_post, name='free_post'),
+
+
     path('study/', S.study_board, name='study'),
+    path('study/post/', S.study_post, name='study_post'),
+
     path('contest/', S.contest_board, name='contest'),
+    path('contest/post/', S.contest_post, name='contest_post'),
+
     path('graduate/', S.graduate_board, name='graduate'),
+    path('graduate/post/', S.graduate_post, name='graduate_post'),
+
     path('club/', S.club_board, name='club'),
+    path('club/post/', S.club_post, name='club_post'),
+
     path('market/', S.market_board, name='market'),
+    path('club/post/', S.club_post, name='club_post'),
 
     path('rank/', S.rank, name="rank"),
 
