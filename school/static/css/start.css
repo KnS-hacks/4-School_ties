@@ -4,14 +4,13 @@
         font-weight: normal;
         font-style: normal;
     }
-html{
-}
 
 body{
-    background-color: #CDF0FF;
-    height: 100vh;
-    margin: 0%;
-}
+        background-color: #CDF0FF;
+        height: 100vh;
+        margin:0%
+    }
+
 #main{
     position: absolute;
     height: 100%;

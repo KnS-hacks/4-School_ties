@@ -17,7 +17,7 @@
     <nav class="navbar">
         <div class="navbar_logo">
             <i class="fab ba-amazon"></i>
-            <a href="">아이콘</a>
+            <img src = "{% static 'img/logo.png' %}" alt ="logo" width="60px">
         </div>
 
         <ul class="navbar_menu">
@@ -28,14 +28,20 @@
             <li><a href="" class="navbar_menu_item">중고 서적 장터</a></li>
         </ul>
         <ul class="navbar_icons">
-            <li><<a href=""><img src = "../src/alarm.png"alt ="alarm" width="30px" height="30px"></a></li>
-
-            <li><a href=""><img src ="../src/profile.png"alt ="profile" width="30px" height="30px"></a></li>
-            <li><a href=""><img src="../src/logout.png"alt ="logout" width="30px" height="30px"></a></li>
+            
+    
+            {% if user.is_authenticated %}
+            <li><a>{{user.username}}[{{user.status}}]</a></li>
+            <li><a href=""><img src = "{% static 'img/alarm.png' %}" alt ="logo" width="30px" height="30px"></a></li>
+            <li><a href="{%url 'logout'%}"><img src="{% static 'img/logout.png' %}"alt ="logout" width="30px" height="30px"></a></li>
+            {% else %}
+            <li><a href="{%url 'login' %}"> <button>로그인</button></a></li>
+            <a href = "{%url 'login' %}">
+            {% endif %}
         </ul>
     </nav>
 {#헤더 끝입니다#}
-    {%block content  %}
+    {% block content %}
     {% endblock %}
 
 <footer class="text-center text-white" style="background-color: #caced1;">

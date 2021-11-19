@@ -18,6 +18,10 @@
     width: 75rem;
     margin: 40px auto 0 auto;
     height: 50px;
+    color: black;
+}
+.navbar_menu_item a{
+    color: black !important;
 }
 .navbar_menu_item a:visited{
     color: black;
@@ -43,9 +47,10 @@
 .navbar_icons{
     padding-left: 0px;
     list-style: none;
-    color: white;
+    color: black;
     display: flex;
 }
+
 .navbar_icons li a img{
     margin: 0 0.5vw 0 0.5vw;
 }
@@ -57,6 +62,7 @@ body{
 
 a{
     text-decoration: none;          /*a태그의 밑줄 제거*/
+    color: black;
 }
 
 
