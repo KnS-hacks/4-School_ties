@@ -81,7 +81,15 @@ body {
     height: 662px;
     padding: 10px;
 }
-
+.LoginLayout .LoginCenter  .logo{
+    
+   
+    
+}
+.LoginLayout .LoginCenter  .logo img{
+    height: 100px;
+    
+}
 .logo {
     height: 120px;
     font-family: 'Monospace', sans-serif;
@@ -176,14 +184,15 @@ body {
     border-radius: 50px;
     height: 60px;
     font-size: var(—-fonit20);
-    background-color: var(-—maincolor);
     margin-top: 40px;
+    background-color: #CDF0FF; !important
 }
-#button{
+.sureLogin #button{
     font-size: var(—-fonit20);
-    background-color: var(—-maincolor);
+    background-color: #CDF0FF;
     border:none;
-    width: 100%;
+    width: 612px;
+    border-radius: 50px;
     height: 60px;
     font-family: 'IM_Hyemin-Bold';
 }

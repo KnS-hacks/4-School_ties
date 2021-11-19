@@ -1,24 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>로그인</h1>
-    {% if user.is_authenticated %}
-    <h3>{{user.username}}[{{user.status}}]</h3>
-    <a href = "{%url 'logout'%}">
-        <button>로그아웃</button>
-    </a>
+{%extends 'base.html'%}
+{% load static %}
 
-    {% else %}
-    <h3>로그인이 필요함</h3>
-    <a href = "{%url 'login' %}">
-        <button>로그인</button>
-    </a>
-    {% endif %}
-</body>
-</html>
+{%block title%}home{%endblock%}
+{%block link%}{%static 'css/home.css'%}{%endblock%}
+
+
+{%block content%}
+    
+    <div class="containner">
+        <div class="header"></div>
+        <div class="marginL"></div>
+        <div class="boardnav">
+            <div class="middleboard">
+                <div class="mainboard">
+                      <i class="content">
+                          <a>자유 게시판</a>
+                          <a>스터디 게시판</a>
+                          <a>공모전 게시판</a>
+                          <a>졸업생 게시판</a>
+                          <a>동아리 게시판</a>
+                      </i>
+                </div>
+            </div>
+        </div>
+       <div class="marginR"></div>
+       <div class="main">
+           <table class="bulletin_board_table" >
+               <tr class="test"><!-- 첫번째 줄 시작 -->
+                   <td class="content_board"><div id="board">1</div></td>
+                   <td class="table_column_margin"></td>
+                   <td class="content_board"><div id="board">2</div></td>
+
+               </tr><!-- 첫번째 줄 끝 -->
+               <tr ><!-- 첫번째 두번째줄 여백 -->
+               </tr><!-- 첫번째 두번째줄 여백 끝 -->
+                       <td class="table_row_margin"></td>
+                       <td class="table_row_margin"></td>
+                       <td class="table_row_margin"></td>
+
+               <tr><!-- 두번째 줄 시작 -->
+                   <td class="content_board"><div id="board"></div></td>
+                   <td class="table_column_margin"></td>
+                   <td class="content_board"><div id="board"></div></td>
+               </tr><!-- 세번째 줄 끝 -->
+               <tr ><!-- 첫번째 두번째줄 여백 -->
+                       <td class="table_row_margin"></td>
+                       <td class="table_row_margin"></td>
+                       <td class="table_row_margin"></td>
+               </tr><!-- 첫번째 두번째줄 여백 끝 -->
+                    <tr><!-- 두번째 줄 시작 -->
+                   <td class="content_board"><div id="board"></div></td>
+                   <td class="table_column_margin"></td>
+                   <td class="content_board"><div id="board"></div></td>
+               </tr><!-- 세번째 줄 끝 -->
+           </table>
+
+
+       </div>
+
+       <div class="undermargin"></div>
+
+       </div>
+{% endblock %}

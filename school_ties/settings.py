@@ -137,7 +137,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_DIRS = [
-    os.path.join(BASE_DIR, 'school','static')
+    os.path.join(BASE_DIR, 'school','static'),
+    os.path.join(BASE_DIR,'account','static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

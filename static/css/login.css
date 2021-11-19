@@ -1,38 +1,40 @@
 @font-face {
-        font-family: 'IM_Hyemin-Bold';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
-        font-weight: normal;
-        font-style: normal;
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-:root{
-    --maincolor: #CDF0FF;  /*메인 색상*/
+:root {
+    --maincolor: #CDF0FF; /*메인 색상*/
     --font50: 50px; /*메인 폰트 사이즈*/
-    --font30:30px;
+    --font30: 30px;
     --font15: 15px;
-    --fonit20:20px;
+    --fonit20: 20px;
 }
 
 
-.cloud1{
+.cloud1 {
     position: absolute;
     top: 40px;
     left: 100px;
 }
-.cloud2{
+
+.cloud2 {
     position: absolute;
     top: 400px;
     left: 1650px;
 }
-body{
-    font-family:'IM_Hyemin-Bold';
-     font-weight: normal;
-        font-style: normal;
+
+body {
+    font-family: 'IM_Hyemin-Bold';
+    font-weight: normal;
+    font-style: normal;
     margin: 0;
     background-color: var(--maincolor);
 }
 
-.containnerLayout{
+.containnerLayout {
     display: grid;
     grid-template-areas: 'upLayout        upLayout       upLayout'
                          'LMarginLayout LoginLayout RMarginLayout'
@@ -40,19 +42,23 @@ body{
     grid-template-columns: 1fr  819px 1fr;
     grid-template-rows: 40px 1000px 40px;
 }
-.containnerLayout div{
-display: grid;
+
+.containnerLayout div {
+    display: grid;
 }
-.upLayout{
+
+.upLayout {
     grid-area: upLayout;
     background-color: #CDF0FF;
 
 }
-.LMarginLayout{
+
+.LMarginLayout {
     grid-area: LMarginLayout;
     background-color: #CDF0FF;
 }
-.LoginLayout{
+
+.LoginLayout {
     grid-area: LoginLayout;
     background-color: #ffffff;
     border-radius: 180px;
@@ -60,38 +66,52 @@ display: grid;
     justify-content: center;
     align-content: center;
 }
-.RMarginLayout{
+
+.RMarginLayout {
     grid-area: RMarginLayout;
 
 }
-.underLayout{
+
+.underLayout {
     grid-area: underLayout;
 }
 
-.LoginCenter{
+.LoginCenter {
     width: 528px;
     height: 662px;
     padding: 10px;
 }
-.logo{
+.LoginLayout .LoginCenter  .logo{
+    
+   
+    
+}
+.LoginLayout .LoginCenter  .logo img{
+    height: 100px;
+    
+}
+.logo {
     height: 120px;
     font-family: 'Monospace', sans-serif;
     font-size: var(--font50);
-    border-bottom: black 3px solid ;
+    border-bottom: black 3px solid;
 
 }
-.membership{
+
+.membership {
     font-size: var(--font50);
-      position: relative;
+    position: relative;
     top: 10px;
 }
-.membership_under{
+
+.membership_under {
     font-size: var(--font15);
-      position: relative;
+    position: relative;
     left: 20px;
 
 }
-.email{
+
+.email {
     position: relative;
     top: 20px;
     font-size: var(--font30);
@@ -99,16 +119,20 @@ display: grid;
     margin-top: 20px;
 
 }
-.submit{
+
+.submit {
     font-size: var(--font30);
 }
-.check{
+
+.check {
     font-size: var(--font15);
 }
-.loginbutton{
+
+.loginbutton {
     font-size: var(--font15);
 }
-.email_bar{
+
+.email_bar {
     border: 3px solid rgba(33, 33, 33, .5);
     width: 100%;
     border-radius: 20px;
@@ -118,7 +142,8 @@ display: grid;
     align-content: center;
     font-size: var(--fonit20);
 }
-.email_submit_bar{
+
+.email_submit_bar {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -129,14 +154,15 @@ display: grid;
     font-size: var(--fonit20)
 
 }
+
 .email_submit {
-        display: flex;
-        margin-top: 20px;
+    display: flex;
+    margin-top: 20px;
     margin-bottom: 20px;
 
 }
 
-.undercontent{
+.undercontent {
     display: flex;
     justify-items: center;
     align-items: center;
@@ -147,15 +173,30 @@ display: grid;
 
 
 }
-.sureLogin{
+
+.sureLogin {
     width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
+    vertical-align: middle;
     border: 3px solid rgba(33, 33, 33, .5);
     border-radius: 50px;
     height: 60px;
-    font-size: var(--fonit20);
-    background-color: var(--maincolor);
-    margin-top: 20px;
+    font-size: var(—-fonit20);
+    margin-top: 40px;
+    background-color: #CDF0FF; !important
+}
+.sureLogin #button{
+    font-size: var(—-fonit20);
+    background-color: #CDF0FF;
+    border:none;
+    width: 612px;
+    border-radius: 50px;
+    height: 60px;
+    font-family: 'IM_Hyemin-Bold';
+}
+.undercontent #join a{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
 }
