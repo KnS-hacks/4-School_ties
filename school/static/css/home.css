@@ -149,8 +149,41 @@ background-color: #CDF0FF;
 height: 100%;
 width: 100%;
 border-radius: 44px;
+display:block;
 }
-.content_board{
+.content_board{ 
     width: 560px;
     height: 402px;
+}
+.test{
+    display: flex;
+}
+.plz{
+    margin-left:34px;
+    margin-top:34px;
+    font-size: var(--font30);
+}
+#more{
+    margin-left: auto;
+    margin-right:34px;
+    font-size: var(--font30);
+}
+#atag{
+    margin-top:20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: -10px;
+    
+}
+#board_name{
+    display: flex;
+
+}
+#atag{
+    background-color: white;
+    height: 50px;
+}
+#header{
+    display: flex;
+    flex-direction: column;
 }
