@@ -9,7 +9,11 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    notices = Notice.objects.all().order_by('-Notice_pub_date')
+    paginator = Paginator(notices, 3)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'home.html',{'notices':page})
 
 ## 메인 자유게시판
 def mainpage(requset):

@@ -27,7 +27,13 @@
        <div class="main">
            <table class="bulletin_board_table" >
                <tr class="test"><!-- 첫번째 줄 시작 -->
-                   <td class="content_board"><div id="board">1</div></td>
+                   <td class="content_board"><div id="board">
+                    {%for a in notices%}
+                    <div>      
+                        <a href="{% url 'notice_detail' a.id %}">{{a.Notice_title}}</a>
+                    </div>
+                    {%endfor%}
+                   </div></td>
                    <td class="table_column_margin"></td>
                    <td class="content_board"><div id="board">2</div></td>
 
@@ -54,6 +60,7 @@
                    <td class="content_board"><div id="board"></div></td>
                </tr><!-- 세번째 줄 끝 -->
            </table>
+
 
 
        </div>
