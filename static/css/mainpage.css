@@ -1,0 +1,196 @@
+ @font-face {
+        font-family: 'IM_Hyemin-Bold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+html{
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+}
+:root{
+    --maincolor: #CDF0FF;  /*메인 색상*/
+    --font50: 50px; /*메인 폰트 사이즈*/
+    --font30:30px;
+    --font15: 15px;
+    --fonit20:20px;
+    --font40:40px;
+
+}
+.pagination{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+ .containner {
+      display: grid;
+      grid-template-areas:
+                         'marginL  header      marginR'
+                         'marginL  boardnav    marginR'
+                         'marginL  main        marginR'
+                         'marginL  undermargin marginR';
+
+      grid-template-columns: 1fr 1200px 1fr; /*세로 좌:300px고정 가운데 1fr: 유동식 우 300px 고정*/
+      grid-template-rows: 90px 160px 1fr 140px; /*가로 */
+  }
+.containner div {
+    display: grid;
+
+}
+
+.header {
+    grid-area: header;
+}
+
+.marginL {
+    grid-area: marginL;
+}
+
+.main {
+    grid-area: main;
+    margin-top: 2vh;
+}
+
+.marginR {
+    grid-area: marginR;
+    height: 100vh;
+}
+
+.undermargin {
+    grid-area: undermargin;
+}
+
+.navbr {
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+}
+.boardnav {   /*아직 안정함*/
+    grid-area: boardnav;
+    background-color: var(--maincolor);
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 20px;
+    height: 160px;
+}
+
+.middleboard{
+    padding: 8px;
+    background-color: white;
+
+}
+.mainboard{
+
+    background-color: var(--maincolor);
+}
+.introduce{
+
+}
+.writetext{
+    display: flex;
+    background-color: var(--maincolor);
+    border-radius: 30px;
+    height: 15vh;
+    padding : 1rem 0.8rem 1rem 0.8rem;
+    flex-direction: row;
+}
+.writetext div{
+    border:  3px solid black;
+}
+.writeList{
+    overflow:auto;
+    height: auto;
+    border-bottom: black 1px solid ;
+    padding: 10px;
+}
+
+.writeList > .title{
+        margin: 2vh 0 10px 1vh;
+        font-size: var(--fonit20);
+
+}
+.writearea{
+ border-color: var(--maincolor);
+font-family: 'IM_Hyemin-Bold';
+    font-size: var(--fonit20);
+}
+.writeList > .mainstory{
+    border: 1px solid black ;
+    position: relative;
+    height: 6vh;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 1vw 1vh 1vw;
+}
+.number{
+    background-color: var(--maincolor);
+     height: 120px;
+}
+
+.nextnav{
+    display: flex;
+    justify-content: center;
+}
+.nextnav span{
+    margin: 0 1vw 0 1vw;
+}
+.content{
+    font-family: 'IM_Hyemin-Bold';
+
+      display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px 0 20px;
+}
+.imagesize{
+    width: 40px;
+    height: 40px;
+    border: black 1px solid;
+}
+
+.mainboard{
+    height: 100%;
+    border-radius: 20px;
+    background-color: #025ce2;
+}
+.content a{
+    margin: 0 3vw 0 3vw;
+    border-left:  solid white 2px;
+    border-right:  solid white 2px;
+    padding: 10px;
+}
+.h{
+    height: 50px;
+}
+.name{
+    font-size: 2.0vw;
+    vertical-align: center;
+    margin-top: 40px;
+}
+
+.sort_bar{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 15px;
+}
+/*.likebutton_bar  {*/
+/*    display: flex;*/
+/*}*/
+.footerbar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 11%;
+	background: #E6E6E6;
+    align-items: center;
+    margin-left: auto;
+    justify-content: right;
+}
+footer img{
+    padding: 0 20px 0 20px;
+    width: 70px;
+    height: 70px;
+    float: right;
+}

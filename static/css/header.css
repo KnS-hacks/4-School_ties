@@ -1,0 +1,62 @@
+@import url("page/cssRule.css") print;
+
+@font-face {
+        font-family: 'IM_Hyemin-Bold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+
+
+.navbar{
+    display: flex;                   /*flex사용*/
+    justify-content: space-between;  /*중심축 배치*/
+    align-items: center;
+    background-color: #CDF0FF;
+    padding: 8px 12px;                  /*위아래 8px,  양옆 12px*/
+    border-radius: 20px;
+    width: 75rem;
+    margin: 40px auto 0 auto;
+    height: 50px;
+}
+.navbar_menu_item a:visited{
+    color: black;
+}
+.navbar_logo{
+    font-size: 20px;
+}
+.navbar_logo i{
+    color: black;
+}
+.navbar_menu{
+    display: flex;           /*이렬배치를 위해 사용*/
+    list-style: none;       /*ul태그 점 제거*/
+    padding-left: 0;
+}
+.navbar_menu li{
+    padding: 8px 12px;
+}
+.navbar_menu li:hover{
+    background-color: white;
+    border-radius: 10px;
+}
+.navbar_icons{
+    padding-left: 0px;
+    list-style: none;
+    color: white;
+    display: flex;
+}
+.navbar_icons li a img{
+    margin: 0 0.5vw 0 0.5vw;
+}
+
+body{
+    margin: 0;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+a{
+    text-decoration: none;          /*a태그의 밑줄 제거*/
+}
+
+
