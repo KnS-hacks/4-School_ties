@@ -1,9 +1,9 @@
 {%  extends 'base.html' %}
 {% load static %}
-{% block title %} 공부 게시판{% endblock %}
+{% block title %}스터디 게시판{% endblock %}
 {% block link %}{% static 'css/study.css' %}{% endblock %}
 
-{% block content %}
+{% block content %} -->
   <div class="containner">
             <div class="header"></div>
             <div class="marginL"></div>
@@ -11,74 +11,92 @@
                 <div class="middleboard">
                     <div class="mainboard">
                           <i class="content">
-                              <a>자유 게시판</a>
-                              <a>스터디 게시판</a>
-                              <a>공모전 게시판</a>
-                              <a>졸업생 게시판</a>
-                              <a>동아리 게시판</a>
+                            <a href="{%url 'free'%}">자유 게시판</a>
+                              <a href="{%url 'study'%}">스터디 게시판</a>
+                              <a href="{%url 'contest'%}">공모전 게시판</a>
+                              <a href="{%url 'graduate'%}">졸업생 게시판</a>
+                              <a href="{%url 'club'%}">동아리 게시판</a>
                           </i>
                     </div>
                 </div>
             </div>
             <div class="marginR"></div>
             <div class="main">
-                <div class="name">스터디</div>
+                <div class="name">자유게시판</div>
                 <div class="h"></div>
 
                 <div class="writetext">
                     <div class="test1">
-                        <a href = "{%url 'study_post'%}"><button type="button" class="btn btn-light">글을 작성해 주세요</button></a>
+                        <textarea class="writearea" placeholder="글을 작성해 주세요"></textarea>
+                    </div>
+                    <div class="test2">
+                        <button type="button" class="btn btn-light">Light</button>
                     </div>
                 </div>
+
 
                 <div class="h"></div>
 
                 <div class="writeList">
                     <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
 
-
-                        {% for a in Study_boards %}
-                            <div class="writeconpent">
-                                <div class="mains">
-                                    <h2>제목 : {{ a.Study_title }}</h2> {# 제목 #}
-                                    <div class="sub">
-                                        <h2 class="sub_1"> 시간 : {{ a.Study_pub_date }}</h2> {# 시간 #}
-                                        <h2 class="sub_1">작성자 :{{ a.Study_author }}</h2> {# 작성자 #}
-                                    </div>
-                                </div>
-                                <div class="notice_board">
-                                    <h2> {{ a.Study_body }}</h2> {# 본문 #}
-                                    </div>
-                                <a href="{% url 'study_detail' a.id %}" class="look">자세히 보기</a>
-                            </div>
-                            {%endfor%}
+                    </div>
+                    <div class="mainstory">help...</div>
                 </div>
-            </div>
 
-      <div class="number">
-          <nav aria-label="Page navigation example">
-              <ul class="pagination">
-
-                  {% if Study_boards.has_previous %}
-                      <a href="?page={{ Study_boards.previous_page_number }}"><</a>
-                  {% endif %}
-
-                  <span>{{ Study_boards.number }}</span>
-                  <span>/</span>
-                  <span>{{ Study_boards.paginator.num_pages }}</span>
-
-                  {% if Study_boards.has_next %}
-                      <a href="?page={{ Study_boards.next_page_number }}">></a>
-                  {% endif %}
-
-              </ul>
-          </nav>
-      </div>
+                <div class="number">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
            <div class="undermargin"></div>
 
         </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" method="post" enctype="multipart/form-data">
+        {% for a in Study_boards %}
+            <div>
+                <a href="{% url 'new'}">글쓰기</a>
+                        <a>제목</a>
+                            <h2>{{ a.Study_title }}</h2>
+                       </div>
+    
+                            <h2>{{ a.Study_pub_date }}</h2>
+                            <h2>{{ a.Study_author }}</h2>
+                            <h2>{{ a.Study_body }}</h2>
+            </div>
+        {% endfor %}
+    </form>
+</body>
+</html>
+    
+        
 {% endblock %}
 
 
