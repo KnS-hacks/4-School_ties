@@ -1,0 +1,49 @@
+:root {
+    --maincolor: #CDF0FF; /*메인 색상*/
+    --font50: 50px; /*메인 폰트 사이즈*/
+    --font30: 30px;
+    --font15: 15px;
+    --fonit20: 20px;
+}
+
+.gridContainner{
+    display: grid;
+
+    grid-template-areas:
+        'LMarginLayout main RMarginLayout';
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1200px 1fr;
+}
+
+.LMarginLayout{
+    grid-area: LMarginLayout;
+}
+.RMarginLayout{
+    grid-area: RMarginLayout;
+}
+
+.upmargin{
+    height: 60px;
+}
+.undermargin{
+    height: 60px;
+}
+.bc{
+    display: flex;
+    background-color: var(--maincolor);
+    border-radius: 60px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+tr td{
+    padding-bottom: 30px;
+    border: white 2px solid;
+        vertical-align: center;
+    justify-items: center;
+}
+
+table{
+    border: white 2px solid;
+    border-radius: 60px;
+}

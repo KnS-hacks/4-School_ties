@@ -1,24 +1,98 @@
+{%  extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/notice.css'%}"
-    <title>Document</title>
-</head>
-<body>
-    <p><공지사항 CRUD 테스트 중></p>
-    {%for a in Study_boards%}
-    <div>
-        <a href = "{%url 'new'}">글쓰기</a>
-        <h2>{{a.Study_title}}</h2>
-        <h2>{{a.Study_pub_date}}</h2>
-        <h2>{{a.Study_author}}</h2>
-        <h2>{{a.Study_body}}</h2>
-        <p><img src="{{ a.Study_board_image.url }}" alt="X"/></p>
-    </div>
-    {%endfor%}
-</body>
-</html>
+{% block title %} 공부 게시판{% endblock %}
+{% block link %}{% static 'css/study.css' %}{% endblock %}
+
+{% block content %}
+  <div class="containner">
+            <div class="header"></div>
+            <div class="marginL"></div>
+            <div class="boardnav">
+                <div class="middleboard">
+                    <div class="mainboard">
+                          <i class="content">
+                              <a>자유 게시판</a>
+                              <a>스터디 게시판</a>
+                              <a>공모전 게시판</a>
+                              <a>졸업생 게시판</a>
+                              <a>동아리 게시판</a>
+                          </i>
+                    </div>
+                </div>
+            </div>
+            <div class="marginR"></div>
+            <div class="main">
+                <div class="name">자유게시판</div>
+                <div class="h"></div>
+
+                <div class="writetext">
+                    <div class="test1">
+                        <textarea class="writearea" placeholder="글을 작성해 주세요"></textarea>
+                    </div>
+                    <div class="test2">
+                        <button type="button" class="btn btn-light">Light</button>
+                    </div>
+                </div>
+
+
+                <div class="h"></div>
+
+                <div class="writeList">
+                    <div class="sort_bar">
+                        <div>ㅎ2ㅎ2</div>
+
+                    </div>
+                    <div class="mainstory">help...</div>
+                </div>
+
+                <div class="number">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+           <div class="undermargin"></div>
+
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+<form id="form" method="post" enctype="multipart/form-data">
+    {% for a in Study_boards %}
+        <div>
+            <a href="{% url 'new'}">글쓰기</a>
+                    <a>제목</a>
+                        <h2>{{ a.Study_title }}</h2>
+                   </div>
+
+                        <h2>{{ a.Study_pub_date }}</h2>
+                        <h2>{{ a.Study_author }}</h2>
+                        <h2>{{ a.Study_body }}</h2>
+                        <p><img src="{{ a.Study_board_image.url }}" alt="X"/></p>
+        </div>
+    {% endfor %}
+</form>
