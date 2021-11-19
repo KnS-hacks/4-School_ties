@@ -1,9 +1,11 @@
+from django.core import paginator
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from django.utils import timezone
 from account.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -20,8 +22,11 @@ def start(request):
 ### 공지사항
 @login_required
 def notice(request):
-    Notices = Notice.objects.all()
-    return render(request, 'notice.html',{'Notices':Notices})
+    Notices = Notice.objects.all().order_by('-Notice_pub_date')
+    paginator = Paginator(Notices, 2)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'notice.html',{'Notices':page})
 
 # 공지사항 create
 @login_required
