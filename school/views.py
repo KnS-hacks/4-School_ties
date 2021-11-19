@@ -35,7 +35,7 @@ def notice_post(request):
         print(user)
         # 작성자 = user 가 됩니다. 
         new_notice.Notice_title = request.POST['title']
-        new_notice.Notice_author = user
+        new_notice.Notice_author = request.user.real_name
         new_notice.Notice_image = request.FILES.get('image')
         new_notice.Notice_body = request.POST['body']
         new_notice.Notice_pub_date = timezone.now()
@@ -64,8 +64,11 @@ def notice_edit(request, id):
 
 def notice_update(request, id):
     notice_update = Notice.objects.get(id = id)
+    user_id = request.user.id
+        # user_id 값과 User 모델의 객체 중 일치하는 값. 즉 글 작성자의 user 객체를 user 변수에 저장합니다. 
+    user = User.objects.get(id = user_id)    
     notice_update.Notice_title = request.POST['title']
-    notice_update.Notice_author = request.POST['author']
+    notice_update.Notice_author = request.user.real_name
     notice_update.Notice_image = request.FILES.get('image')
     notice_update.Notice_body = request.POST['body']
     notice_update.Notice_pub_date = timezone.now()
@@ -94,7 +97,7 @@ def create_notice_comment(request, notice_id):
         print(user)
         # 작성자 = user 가 됩니다. 
         notice_comment.notice = get_object_or_404(Notice, pk=notice_id)
-        notice_comment.notice_author = user
+        notice_comment.notice_author = request.user.real_name
         notice_comment.notice_content = request.POST['content']
         notice_comment.notice_at = timezone.datetime.now()
         notice_comment.save()
@@ -111,8 +114,11 @@ def delete_notice_comment(request, id, comment_id):
 @login_required
 def update_notice_comment(request, id, comment_id):
     if request.method == 'POST':
+        user_id = request.user.id
+        # user_id 값과 User 모델의 객체 중 일치하는 값. 즉 글 작성자의 user 객체를 user 변수에 저장합니다. 
+        user = User.objects.get(id = user_id)
         update_notice_comment = get_object_or_404(Notice_Comment, pk=comment_id)
-        update_notice_comment.notice_author = request.POST['author']
+        update_notice_comment.notice_author = request.user.real_name
         update_notice_comment.notice_content = request.POST['content']
         update_notice_comment.save()
         return redirect('notice_detail', id)
