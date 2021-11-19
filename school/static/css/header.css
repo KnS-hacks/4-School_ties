@@ -7,7 +7,15 @@
         font-style: normal;
 }
 
+:root{
+    --maincolor: #CDF0FF;  /*메인 색상*/
+    --font50: 50px; /*메인 폰트 사이즈*/
+    --font30:30px;
+    --font15: 15px;
+    --fonit20:20px;
+    --font40:40px;
 
+}
 .navbar{
     display: flex;                   /*flex사용*/
     justify-content: space-between;  /*중심축 배치*/

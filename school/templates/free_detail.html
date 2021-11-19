@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}글쓴 페이지 상세{% endblock %}
-{% block link %}{% static 'css/notice_detail.css' %}{% endblock %}
+{% block link %}{% static 'css/free_detail.css' %}{% endblock %}
 
 
 {% block content %}
@@ -30,25 +30,25 @@
                 <div class="mainboard">
                 <div class="writeList">
                     <div class="introduce">
-                        {% if detail_notice.Notice_image %}
-                            <p><img  class="writeimg" src="{{ detail_notice.Notice_image.url }}" width="200px" height="200px" alt="X"/>
+                        {% if detail_free.Free_image %}
+                            <p><img  class="writeimg" src="{{ detail_free.Free_image.url }}" width="200px" height="200px" alt="X"/>
                             </p>
                         {% endif %}
                         <div>
-                            <h2>작성자 : {{ detail_notice.Notice_author }}</h2>
-                            <h2>작성 시간 : {{ detail_notice.Notice_pub_date }}</h2>
+                            <h2>작성자 : {{ detail_free.Free_author }}</h2>
+                            <h2>작성 시간 : {{ detail_free.Free_pub_date }}</h2>
                         </div>
                     </div>
                     <div class="sort_bar">
-                        <div><h2> 제목 :{{detail_notice.Notice_title}}</h2></div>
+                        <div><h2> 제목 :{{detail_free.Free_title}}</h2></div>
                     </div>
-                    <div class="mainstory"><h2>{{ detail_notice.Notice_body }}</h2></div>
-                    {% if user == detail_notice.Notice_author %}
+                    <div class="mainstory"><h2>{{ detail_free.Free_body }}</h2></div>
+                    {% if user == detail_free.Free_author %}
                         <div class="update">
-                        <a href="{% url 'notice_edit' detail_notice.id %}">
+                        <a href="{% url 'free_edit' detail_free.id %}">
                             <button type="submit">수정</button>
                         </a>
-                        <a href="{% url 'notice_delete' detail_notice.id %}">
+                        <a href="{% url 'free_delete' detail_free.id %}">
                             <button type="submit">삭제</button>
                         </a>
                         </div>
@@ -57,7 +57,7 @@
 
                     <div class="coment_text">
                         <div class="usercoment">
-                            <form action="{% url 'create_notice_comment' detail_notice.id %}" method="POST"
+                            <form action="{% url 'create_free_comment' detail_free.id %}" method="POST"
                                   enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <!-- <p>작성자 : <input type="text" name="author"></p> -->
@@ -70,27 +70,27 @@
                     </div>
                     <div class="writeList">
                         <div class="comment__box">
-                            {% for comment in detail_notice.comments.all %}
+                            {% for comment in detail_free.comments.all %}
                                     <div class="comment_box_form">
                                         <div class="user-id">
-                                          작성자 : {{ comment.notice_author }}
+                                          작성자 : {{ comment.free_author }}
                                         </div>
                                         <div class="user-comment"></div>
-                                        <sub class="comment-date">작성 시간 :{{ comment.notice_at }}</sub>
+                                        <sub class="comment-date">작성 시간 :{{ comment.free_at }}</sub>
                                         <div class="coment_box">
-                                         <div class="mainstory">{{ comment.notice_content|linebreaksbr }}</div>
+                                         <div class="mainstory">{{ comment.free_content|linebreaksbr }}</div>
                                             </div>
                                 </div>
 
                                 <div class="commentupdate">
                                 <!-- 댓글 삭제 -->
-                                {% if user == comment.notice_author %}
-                                    <a href="{% url 'delete_notice_comment' detail_notice.id comment.id %}"
+                                {% if user == comment.free_author %}
+                                    <a href="{% url 'delete_free_comment' detail_free.id comment.id %}"
                                        method="POST" enctype="multipart/form-data">
                                         <button>삭제</button>
                                     </a>
                                     <!-- 댓글 수정 -->
-                                    <a href="{% url 'update_notice_comment' detail_notice.id comment.id %}"
+                                    <a href="{% url 'update_free_comment' detail_free.id comment.id %}"
                                        method="POST" enctype="multipart/form-data">
                                         <button>수정</button>
                                     </a>

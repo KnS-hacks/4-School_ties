@@ -1,24 +1,91 @@
+{%  extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/notice.css'%}"
-    <title>Document</title>
-</head>
-<body>
-    <p><공지사항 CRUD 테스트 중></p>
-    {%for a in Club_boards%}
-    <div>
-        <a href = "{%url 'new'%}">글쓰기</a>
-        <h2>{{a.Club_title}}</h2>
-        <h2>{{a.Club_pub_date}}</h2>
-        <h2>{{a.Club_author}}</h2>
-        <h2>{{a.Club_body}}</h2>
-        <p><img src="{{ a.Club_board_image.url }}" alt="X"/></p>
-    </div>
-    {%endfor%}
-</body>
-</html>
+{% block title %} 공부 게시판{% endblock %}
+{% block link %}{% static 'css/club.css' %}{% endblock %}
+
+{% block content %}
+  <div class="containner">
+            <div class="header"></div>
+            <div class="marginL"></div>
+            <div class="boardnav">
+                <div class="middleboard">
+                    <div class="mainboard">
+                          <i class="content">
+                              <a>자유 게시판</a>
+                              <a>스터디 게시판</a>
+                              <a>공모전 게시판</a>
+                              <a>졸업생 게시판</a>
+                              <a>동아리 게시판</a>
+                          </i>
+                    </div>
+                </div>
+            </div>
+            <div class="marginR"></div>
+            <div class="main">
+                <div class="name">동아리 게시판</div>
+                <div class="h"></div>
+
+                <div class="writetext">
+                    <div class="test1">
+                        <a href = "{%url 'club_post'%}"><button type="button" class="btn btn-light">글을 작성해 주세요</button></a>
+                    </div>
+                </div>
+
+                <div class="h"></div>
+
+                <div class="writeList">
+                    <div class="sort_bar">
+
+
+                        {% for a in Club_boards %}
+                            <div class="writeconpent">
+                                <div class="mains">
+                                    <h2>제목 : {{ a.club_title }}</h2> {# 제목 #}
+                                    <div class="sub">
+                                        <h2 class="sub_1"> 시간 : {{ a.club_pub_date }}</h2> {# 시간 #}
+                                        <h2 class="sub_1">작성자 :{{ a.club_author }}</h2> {# 작성자 #}
+                                    </div>
+                                </div>
+                                <div class="notice_board">
+                                    <h2> {{ a.club_body }}</h2> {# 본문 #}
+                                    </div>
+                                <a href="{% url 'club_detail' a.id %}" class="look">자세히 보기</a>
+                            </div>
+                            {%endfor%}
+                </div>
+            </div>
+
+      <div class="number">
+          <nav aria-label="Page navigation example">
+              <ul class="pagination">
+
+                  {% if Club_boards.has_previous %}
+                      <a href="?page={{ Club_boards.previous_page_number }}"><</a>
+                  {% endif %}
+
+                  <span>{{ Club_boards.number }}</span>
+                  <span>/</span>
+                  <span>{{ Club_boards.paginator.num_pages }}</span>
+
+                  {% if Club_boards.has_next %}
+                      <a href="?page={{ Club_boards.next_page_number }}">></a>
+                  {% endif %}
+
+              </ul>
+          </nav>
+      </div>
+            </div>
+           <div class="undermargin"></div>
+
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

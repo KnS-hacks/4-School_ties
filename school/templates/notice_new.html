@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %} 공지게시판 업로드{% endblock %}
-{% block link %}{% static 'css/boardform.css' %}{% endblock %}
+{% block link %}{% static 'css/notice_new.css' %}{% endblock %}
 
 {% block content %}
 
@@ -11,37 +11,35 @@
     </div>
 
     <div class="boardcontainner">
-    <form id="form" action = "{%url 'notice_post'%}"  method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div id="title">
-            <a>제목</a>
-            <input id="input" type="text" name="title">
-        </div>
-        <div class="imageset">
-            <label for="chooseFile">
-                👉 CLICK HERE! 👈
-            </label>
-        </div>
-        <input type="file" id="chooseFile" name="image" accept="image/*" onchange="loadFile(this)">
 
-        <div id="text">
-            <div id="atag"><a>본문</a></div>
-            <textarea style="resize: none" rows="20" cols="30" name="body"></textarea>
-        </div>
-        <div id="submit">
-            <input type="submit" value="글쓰기">
-        </div>
-    </form>
-        </div>
+        <div class="LMarginLayout"></div>
+        <div class="main">
+            <div   class="ll">
+            <form id="form" action="{% url 'notice_post' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="title">
+                    <a>제목</a>
+                    <input id="input" type="text" name="title">
+                </div>
+                <div class="imageset">
+                    <label for="chooseFile">
+                        👉 CLICK HERE! 👈
+                    </label>
+                </div>
+                <input type="file" id="chooseFile" name="image" accept="image/*" onchange="loadFile(this)">
 
-</div>
-    <!-- <form action = "{%url 'notice_post'%}" method = "POST" enctype = "multipart/form-data">
-        {% csrf_token %}
-        <input type = "text" name = "title" placeholder="제목">
-        <!-- <input type = "text" name = "author" placeholder="작성자"> -->
-        <!-- <textarea name = "body" cols = "100" row = "100" placeholder="내용"></textarea>
-        첨부파일: <input type = "file" name = "image">
-        <button type = "submit">작성하기</button>
-    </form>
-</body> -->
+                <div id="text">
+                    <div id="atag"><a>본문</a></div>
+                    <textarea style="resize: none" rows="13" cols="40" name="body"></textarea>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="글쓰기">
+                </div>
+            </form>
+                </div>
+        </div>
+            <div class="RMarginLayout"></div>
+
+    </div>
+
 {% endblock %}
